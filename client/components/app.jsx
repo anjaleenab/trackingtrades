@@ -10,11 +10,7 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <React.Fragment>
-        <Header />
-        <div>Testing 123</div>
-      </React.Fragment>
-
+      <Header />
     );
   }
 }
