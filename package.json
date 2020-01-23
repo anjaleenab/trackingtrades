@@ -96,7 +96,7 @@
       "react/react-in-jsx-scope": 0
     }
   },
-  "main": "webpack.config.js",
+  "main": "server/public/main.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anjaleenab/trackingtrades.git"

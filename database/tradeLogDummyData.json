@@ -1,0 +1,10 @@
+[
+  {
+    "date":  "01-22-2020",
+    "stock": "MSFT",
+    "quantity": 20,
+    "price bought": 165.72,
+    "price sold": 166.01,
+    "profit/loss": 58
+  }
+]
