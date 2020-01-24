@@ -7,7 +7,6 @@ body {
   color: #4e9525;
   background-color: #605a56;
   text-align: center;
-  font-size: 3.5em;
 }
 
 .heading {
@@ -58,4 +57,45 @@ input {
 
 label {
   margin-right: 2.5em;
+}
+
+.mainDashboard {
+  width: 100vw;
+  height: 65vh;
+}
+
+.topDash, .bottomDash {
+  display: flex;
+  justify-content: space-around;
+}
+
+.topDash {
+  height: 50%;
+}
+
+.bottomDash {
+  margin-top:2em;
+  height: 50%;
+}
+
+.stat1, .stat2, .stat3 {
+  width: 30%;
+  height: 100%;
+}
+
+.stat4, .stat5 {
+  width: 46%;
+  height: 100%;
+}
+
+ .stat4 {
+  margin-right: .5em;
+}
+
+.stat5 {
+  margin-left: .5em;
+}
+
+[class^=stat] {
+  background-color: #c4c4c4;
 }
