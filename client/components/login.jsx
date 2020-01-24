@@ -3,7 +3,8 @@ import React from 'react';
 export default function LoginPage(props) {
   return (
     <div className="login">
-      <div className="login-image"></div>
+      <div className="login-image">
+      </div>
       <div className="loginNecessities">
         <div className="login-section">
           <div className="login-input1">
