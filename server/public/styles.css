@@ -59,3 +59,11 @@ input {
 label {
   margin-right: 2.5em;
 }
+
+.mainDashboard {
+  display: grid;
+}
+
+[className^=stat] {
+  background-color: #c4c4c4;
+}
