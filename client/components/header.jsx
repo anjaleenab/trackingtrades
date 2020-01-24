@@ -1,9 +1,9 @@
 import React from 'react';
 
 export default function Header(props) {
-  if (props.loggedIn) {
+  if (props.status) {
     return (
-      <header style={{ fontSize: '1.5em' }} className="header">
+      <header style={{ fontSize: '1em', marginTop: '2em' }} className="header">
         <h1 className="heading">Tracking Trades</h1>
       </header>
     );
