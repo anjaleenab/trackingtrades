@@ -13,3 +13,12 @@ body {
 .heading {
   margin: 0px;
 }
+
+.login-section {
+  background-color: #605a56;
+  width: 60%;
+}
+
+.login-image {
+width: 40%;
+}
