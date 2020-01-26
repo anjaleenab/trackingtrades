@@ -35,7 +35,7 @@ export default function LoginPage(props) {
     return (
       <React.Fragment>
         <Header status={loggedIn} />
-        <Dashboard/>
+        <Dashboard trades={props.trades}/>
       </React.Fragment>
     );
   }

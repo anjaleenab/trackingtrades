@@ -12,7 +12,7 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <LoginPage></LoginPage>
+      <LoginPage trades={this.state.trades}></LoginPage>
     );
   }
 }
