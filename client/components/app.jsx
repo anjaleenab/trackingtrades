@@ -6,7 +6,8 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       trades: [],
-      loggedIn: false
+      loggedIn: false,
+      tradeLogMode: false
     };
   }
   render() {

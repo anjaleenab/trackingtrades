@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import TradeLog from './tradelog';
 
 export default function Dashboard(props) {
-  return (
-    <main className="mainDashboard">
+  const [tradeLogMode, setTradeLogMode] = useState(false);
+  let component;
+  if (tradeLogMode) {
+    component = <TradeLog/>;
+  } else {
+    component = <main className="mainDashboard">
       <div className="topDash">
         <div className="stat1"></div>
         <div className="stat2"></div>
-        <div className="stat3"></div>
+        <div className="stat3">
+          <div>Number of Trades Logged:</div>
+          <button onClick={() => { setTradeLogMode(true); }}>Enter a trade</button>
+        </div>
       </div>
       <div className="bottomDash">
         <div className="stat4"></div>
         <div className="stat5"></div>
       </div>
-    </main>
+    </main>;
+  }
+  return (
+    component
   );
 }
