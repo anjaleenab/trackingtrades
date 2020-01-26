@@ -5,7 +5,7 @@ export default function Dashboard(props) {
   const [tradeLogMode, setTradeLogMode] = useState(false);
   let component;
   if (tradeLogMode) {
-    component = <TradeLog/>;
+    component = <TradeLog trades={props.trades}/>;
   } else {
     component = <main className="mainDashboard">
       <div className="topDash">
