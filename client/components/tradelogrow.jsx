@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
+import TradeInput from './tradeinput';
 
 export default function TradeLogRow(props) {
-  const [editTrade, setEditTrade] = useState(false);
   return (
     props.trades.map(trade => {
       let id = trade['id'];
@@ -11,16 +11,23 @@ export default function TradeLogRow(props) {
       let boughtAt = trade['Price-Bought'];
       let soldAt = trade['Price-Sold'];
       let pAndL = trade['Profit-Loss'];
-      return (
-        <tr className = "data-row" key={id}>
-          <td>{date}</td>
-          <td>{stock}</td>
-          <td>{quantity}</td>
-          <td>{boughtAt}</td>
-          <td>{soldAt}</td>
-          <td>{pAndL}</td>
-        </tr>
-      );
+      if (!props.edit) {
+        return (
+          <tr className="data-row" key={id}>
+            <td>{date}</td>
+            <td>{stock}</td>
+            <td>{quantity}</td>
+            <td>{boughtAt}</td>
+            <td>{soldAt}</td>
+            <td>{pAndL}</td>
+          </tr>
+        );
+      } else {
+        return (
+          <TradeInput/>
+        );
+      }
+
     })
   );
 }
