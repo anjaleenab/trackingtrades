@@ -1,4 +1,5 @@
 import React from 'react';
+import TradeLogRow from './tradelogrow';
 
 export default function TradeLog(props) {
   return (
@@ -12,6 +13,7 @@ export default function TradeLog(props) {
           <th>Price Sold</th>
           <th>Profit/Loss</th>
         </tr>
+        <TradeLogRow trades={props.trades}/>
       </table>
     </div>
   );
