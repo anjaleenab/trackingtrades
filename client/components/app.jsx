@@ -15,7 +15,8 @@ export default class App extends React.Component {
         'Profit-Loss': 5.80
       }],
       loggedIn: false,
-      tradeLogMode: false
+      tradeLogMode: false,
+      editTrade: false
     };
   }
   render() {
