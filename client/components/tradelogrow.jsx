@@ -11,7 +11,7 @@ export default function TradeLogRow(props) {
       let soldAt = trade['Price-Sold'];
       let pAndL = trade['Profit-Loss'];
       return (
-        <tr key={id}>
+        <tr className = "data-row" key={id}>
           <td>{date}</td>
           <td>{stock}</td>
           <td>{quantity}</td>
