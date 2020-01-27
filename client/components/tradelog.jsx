@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TradeLogRow from './tradelogrow';
 
 export default function TradeLog(props) {
+  const [editTrade, setEditTrade] = useState(false);
   return (
     <div>
       <table className ="trades">
@@ -13,8 +14,10 @@ export default function TradeLog(props) {
           <th>Price Sold</th>
           <th>Profit/Loss</th>
         </tr>
-        <TradeLogRow trades={props.trades}/>
+        <TradeLogRow trades={props.trades} edit={editTrade}/>
       </table>
+      <button onClick={() => { setEditTrade(true); }}>Edit Trade
+      </button>
     </div>
   );
 }
