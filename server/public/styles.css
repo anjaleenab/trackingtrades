@@ -100,3 +100,14 @@ label {
 [class^=stat] {
   background-color: #c4c4c4;
 }
+
+.trades {
+  width: 100%;
+  font-family: 'Reenie Beanie', cursive;
+  margin-top: 2em;
+}
+
+.data-row {
+  background-color: #FFFFFF;
+  text-align: center;
+}

@@ -4,8 +4,8 @@ import TradeLogRow from './tradelogrow';
 export default function TradeLog(props) {
   return (
     <div>
-      <table>
-        <tr>
+      <table className ="trades">
+        <tr className="headers-row">
           <th>Date</th>
           <th>Stock</th>
           <th>Quantity</th>
