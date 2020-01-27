@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function TradeLogRow(props) {
+  const [editTrade, setEditTrade] = useState(false);
   return (
     props.trades.map(trade => {
       let id = trade['id'];
