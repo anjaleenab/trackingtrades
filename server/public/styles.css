@@ -112,6 +112,35 @@ label {
   text-align: center;
 }
 
+.data-row-input {
+  margin-left: .5em;
+}
+
 .data-row-input > input {
-  width: 6.75em;
+  text-align: center;
+  font-family: 'Reenie Beanie', cursive;
+}
+
+#dateInput {
+  width: 10%;
+}
+
+#stockInput {
+  width: 15%;
+}
+
+#quantityInput {
+  width: 15%;
+}
+
+#boughtInput {
+  width: 19%;
+}
+
+#soldInput {
+  width: 19%;
+}
+
+#pAndLInput {
+  width: 19%;
 }
