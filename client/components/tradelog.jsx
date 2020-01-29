@@ -1,23 +1,41 @@
 import React, { useState } from 'react';
 import TradeLogRow from './tradelogrow';
+import TradeInput from './tradeinput';
 
 export default function TradeLog(props) {
   const [editTrade, setEditTrade] = useState(false);
   return (
     <div>
       <table className ="trades">
-        <tr className="headers-row">
-          <th>Date</th>
-          <th>Stock</th>
-          <th>Quantity</th>
-          <th>Price Bought</th>
-          <th>Price Sold</th>
-          <th>Profit/Loss</th>
-        </tr>
-        <TradeLogRow trades={props.trades} edit={editTrade}/>
+        <thead>
+          <tr className="headers-row">
+            <th>Date</th>
+            <th>Stock</th>
+            <th>Quantity</th>
+            <th>Price Bought</th>
+            <th>Price Sold</th>
+            <th>Profit/Loss</th>
+          </tr>
+        </thead>
+
+        {!editTrade
+          ? <tbody><TradeLogRow trades={props.trades} edit={editTrade} /></tbody>
+          : null}
       </table>
-      <button onClick={() => { setEditTrade(true); }}>Edit Trade
-      </button>
+      {!editTrade
+        ? <button onClick={() => { setEditTrade(true); }}>Edit Trade
+        </button>
+        : null}
+      {editTrade
+        ? <React.Fragment>
+          <TradeInput trades={props.trades} edit={editTrade} />
+          <div>
+            <button onClick={() => { setEditTrade(false); }}>Save Edits
+            </button>
+          </div>
+        </React.Fragment>
+        : null
+      }
     </div>
   );
 }
