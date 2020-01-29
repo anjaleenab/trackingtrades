@@ -17,7 +17,7 @@ export default class App extends React.Component {
       {
         'ID': 2,
         'Date': '01-22-2020',
-        'Stock': 'MSFT',
+        'Stock': 'ROKU',
         'Quantity': 20,
         'Price-Bought': 165.72,
         'Price-Sold': 166.01,
