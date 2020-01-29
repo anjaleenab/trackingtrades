@@ -111,3 +111,7 @@ label {
   background-color: #FFFFFF;
   text-align: center;
 }
+
+.data-row-input > input {
+  width: 6.75em;
+}

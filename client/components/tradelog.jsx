@@ -7,24 +7,35 @@ export default function TradeLog(props) {
   return (
     <div>
       <table className ="trades">
-        <tr className="headers-row">
-          <th>Date</th>
-          <th>Stock</th>
-          <th>Quantity</th>
-          <th>Price Bought</th>
-          <th>Price Sold</th>
-          <th>Profit/Loss</th>
-        </tr>
+        <thead>
+          <tr className="headers-row">
+            <th>Date</th>
+            <th>Stock</th>
+            <th>Quantity</th>
+            <th>Price Bought</th>
+            <th>Price Sold</th>
+            <th>Profit/Loss</th>
+          </tr>
+        </thead>
+
         {!editTrade
-          ? <TradeLogRow trades={props.trades} edit={editTrade} />
+          ? <tbody><TradeLogRow trades={props.trades} edit={editTrade} /></tbody>
           : null}
       </table>
+      {!editTrade
+        ? <button onClick={() => { setEditTrade(true); }}>Edit Trade
+        </button>
+        : null}
       {editTrade
-        ? <TradeInput />
+        ? <React.Fragment>
+          <TradeInput trades={props.trades} edit={editTrade} />
+          <div>
+            <button onClick={() => { setEditTrade(false); }}>Save Edits
+            </button>
+          </div>
+        </React.Fragment>
         : null
       }
-      <button onClick={() => { setEditTrade(true); }}>Edit Trade
-      </button>
     </div>
   );
 }
