@@ -1,4 +1,5 @@
 import React from 'react';
+import TradeInputRow from './tradeInputRow';
 
 export default class TradeInput extends React.Component {
   constructor(props) {
@@ -28,7 +29,6 @@ export default class TradeInput extends React.Component {
       soldAt: originalVal.soldAt,
       pAndL: originalVal.pAndL
     });
-    console.log('mounted here is test: ' + this.props.trades);
   }
   render() {
     return (
@@ -41,20 +41,8 @@ export default class TradeInput extends React.Component {
         let soldAt = trade['Price-Sold'];
         let pAndL = trade['Profit-Loss'];
         return (
-          <div className="data-row-input" key={id}>
-            <input id="dateInput"
-              onChange={event => this.change(event)} type="text" name="date" value={this.state.date} ></input>
-            <input id="stockInput"
-              name="stock" value={this.state.stock} onChange={event => this.change(event)}></input>
-            <input id="quantityInput"
-              name="quantity" value={this.state.quantity} onChange={event => this.change(event)}></input>
-            <input id="boughtInput"
-              name="boughtAt" value={this.state.boughtAt} onChange={event => this.change(event)}></input>
-            <input id="soldInput"
-              name="soldAt" value={this.state.soldAt} onChange={event => this.change(event)}></input>
-            <input id="pAndLInput"
-              name="pAndL" value={this.state.pAndL} onChange={event => this.change(event)}></input>
-          </div>
+          <TradeInputRow key={id} date={date} stock={stock} quantity={quantity} boughtAt={boughtAt}
+            soldAt={soldAt} pAndL={pAndL} change={this.change}/>
         );
       })
     );
