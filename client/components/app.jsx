@@ -28,6 +28,11 @@ export default class App extends React.Component {
       editTrade: false
     };
   }
+  updateState(tradeID) {
+    while (this.state.trades['ID'] === tradeID) {
+
+    }
+  }
   render() {
     return (
       <LoginPage trades={this.state.trades}></LoginPage>
