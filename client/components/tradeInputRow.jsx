@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const useInputVal = initialVal => {
+const useInputVal = (initialVal, name, tradeID) => {
   const [value, setValue] = useState();
   return {
     value,

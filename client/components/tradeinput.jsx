@@ -12,8 +12,8 @@ export default function TradeInput(props) {
       let soldAt = trade['Price-Sold'];
       let pAndL = trade['Profit-Loss'];
       return (
-        <TradeInputRow key={id} date={date} stock={stock} quantity={quantity} boughtAt={boughtAt}
-          soldAt={soldAt} pAndL={pAndL}/>
+        <TradeInputRow key={id} tradeID={id} date={date} stock={stock} quantity={quantity}
+          boughtAt={boughtAt} soldAt={soldAt} pAndL={pAndL}/>
       );
     })
   );
