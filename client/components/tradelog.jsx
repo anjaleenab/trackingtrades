@@ -4,6 +4,7 @@ import TradeInput from './tradeinput';
 
 export default function TradeLog(props) {
   const [editTrade, setEditTrade] = useState(false);
+  const [deleteTrade, setDeleteTrade] = useState(false);
   return (
     <div>
       <table className ="trades">
@@ -28,11 +29,12 @@ export default function TradeLog(props) {
         : null}
       {editTrade
         ? <React.Fragment>
-          <TradeInput trades={props.trades} edit={editTrade} stateUpdate={props.stateUpdate}/>
+          <TradeInput trades={props.trades} edit={editTrade} delete={deleteTrade} stateUpdate={props.stateUpdate}/>
           <div>
             <button onClick={() => { setEditTrade(false); }}>Save Edits
             </button>
-            <button>Delete A Trade</button>
+            {!deleteTrade ? <button onClick={() => { setDeleteTrade(true); }}>Delete A Trade</button> : null }
+            {deleteTrade ? <button onClick={() => setDeleteTrade(false)}>Confirm Delete</button> : null}
           </div>
         </React.Fragment>
         : null
