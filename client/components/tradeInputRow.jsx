@@ -21,7 +21,8 @@ export default function TradeInputRow(props) {
   const pAndLInput = useInputVal(props, props.pAndL);
   return (
     <div className="data-row-input" key={props.id}>
-      {props.deleteRow ? <DeleteInput TradeID={props.tradeID} tradesForDelete={props.tradesForDelete}/> : null}
+      {props.deleteRow ? <DeleteInput TradeID={props.tradeID} setTradesForDelete={props.setTradesForDelete}
+        tradesToDelete={props.tradesToDelete} /> : null}
       <input style={{ width: '10%' }}
         type="text" name="Date" defaultValue={props.date} {...dateInput}></input>
       <input style={{ width: '15%' }}

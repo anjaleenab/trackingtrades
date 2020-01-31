@@ -36,7 +36,8 @@ export default function LoginPage(props) {
       <React.Fragment>
         <Header status={loggedIn} />
         <Dashboard trades={props.trades} stateUpdate={props.stateUpdate}
-          deleteTrades={props.deleteTrades} tradesForDelete={props.tradesForDelete}/>
+          deleteTrades={props.deleteTrades} setTradesForDelete={props.setTradesForDelete}
+          tradesToDelete={props.tradesToDelete}/>
       </React.Fragment>
     );
   }
