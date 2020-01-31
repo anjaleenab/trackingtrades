@@ -27,15 +27,14 @@ export default class App extends React.Component {
       tradeLogMode: false,
       editTrade: false
     };
+    this.updateState = this.updateState.bind(this);
   }
   updateState(tradeID) {
-    while (this.state.trades['ID'] === tradeID) {
 
-    }
   }
   render() {
     return (
-      <LoginPage trades={this.state.trades}></LoginPage>
+      <LoginPage trades={this.state.trades} stateUpdate={this.updateState}></LoginPage>
     );
   }
 }
