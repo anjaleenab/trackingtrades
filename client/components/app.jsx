@@ -39,6 +39,11 @@ export default class App extends React.Component {
       trades: tradesCopy
     });
   }
+  setTradesForDelete(tradeIDList) {
+    this.setState({
+      toDelete: tradeIDList
+    });
+  }
   deleteTrades() {
     let tradesToDelete = Object.assign(this.state.trades.toDelete);
     let tradesCopy = Object.assign(this.state.trades);
