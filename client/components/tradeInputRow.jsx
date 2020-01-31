@@ -28,11 +28,11 @@ export default function TradeInputRow(props) {
         type="text" name="Stock" defaultValue={props.stock} {...stockInput}></input>
       <input style={{ width: '15%' }}
         type="text" name="Quantity" defaultValue={props.quantity} {...quantityInput}></input>
-      <input style={{ width: '18%' }}
+      <input style={{ width: '18.5%' }}
         type="text" name="Price-Bought" defaultValue={props.boughtAt} {...boughtAtInput}></input>
-      <input style={{ width: '18%' }}
+      <input style={{ width: '18.5%' }}
         type="text" name="Price-Sold" defaultValue={props.soldAt} {...soldAtInput}></input>
-      <input style={{ width: '18%' }}
+      <input style={{ width: '18.5%' }}
         type="text" name="Profit-Loss" defaultValue={props.pAndL} {...pAndLInput}></input>
     </div>
   );
