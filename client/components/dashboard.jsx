@@ -6,7 +6,8 @@ export default function Dashboard(props) {
   let component;
   if (tradeLogMode) {
     component = <TradeLog trades={props.trades} stateUpdate={props.stateUpdate}
-      deleteTrades={props.deleteTrades} tradesForDelete={props.tradesForDelete}/>;
+      deleteTrades={props.deleteTrades} setTradesForDelete={props.setTradesForDelete}
+      tradesToDelete={props.tradesToDelete} />;
   } else {
     component = <main className="mainDashboard">
       <div className="topDash">

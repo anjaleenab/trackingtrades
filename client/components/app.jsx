@@ -27,6 +27,7 @@ export default class App extends React.Component {
     };
     this.updateState = this.updateState.bind(this);
     this.deleteTrades = this.deleteTrades.bind(this);
+    this.setTradesForDelete = this.setTradesForDelete.bind(this);
   }
   updateState(tradeID, valName, newVal) {
     let tradesCopy = Object.assign(this.state.trades);
@@ -65,7 +66,9 @@ export default class App extends React.Component {
   render() {
     return (
       <LoginPage trades={this.state.trades} stateUpdate={this.updateState}
-        deleteTrades={this.deleteTrades} tradesForDelete={this.tradesToDelete}> </LoginPage>
+        deleteTrades={this.deleteTrades} setTradesForDelete={this.setTradesToDelete}
+        tradesToDelete={this.state.toDelete}>
+      </LoginPage>
     );
   }
 }
