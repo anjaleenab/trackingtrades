@@ -1,5 +1,5 @@
 import React from 'react';
-import TradeInputRow from './tradeInputRow';
+import TradeInputRow from './tradeinputrow';
 
 export default function TradeInput(props) {
   return (
@@ -13,7 +13,7 @@ export default function TradeInput(props) {
       let pAndL = trade['Profit-Loss'];
       return (
         <TradeInputRow key={id} tradeID={id} date={date} stock={stock} quantity={quantity}
-          boughtAt={boughtAt} soldAt={soldAt} pAndL={pAndL} stateUpdate={props.stateUpdate}/>
+          boughtAt={boughtAt} soldAt={soldAt} pAndL={pAndL} stateUpdate={props.stateUpdate} deleteRow={props.delete}/>
       );
     })
   );
