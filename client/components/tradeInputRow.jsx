@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 
-const useInputVal = (props, tradeID) => {
-  const [setValue] = useState();
+const useInputVal = (props, initialValue, tradeID) => {
+  const [defaultValue, setValue] = useState(initialValue);
   return {
-    onChange: event => setValue(event.target.value)
+    defaultValue,
+    onChange: event => {
+      setValue(event.target.value);
+      props.stateUpdate(tradeID);
+    }
   };
 };
 
 export default function TradeInputRow(props) {
-  const dateInput = useInputVal();
-  const stockInput = useInputVal();
-  const quantityInput = useInputVal();
-  const boughtAtInput = useInputVal();
-  const soldAtInput = useInputVal();
-  const pAndLInput = useInputVal();
-
+  const dateInput = useInputVal(props, props.date);
+  const stockInput = useInputVal(props, props.stock);
+  const quantityInput = useInputVal(props, props.quantity);
+  const boughtAtInput = useInputVal(props, props.boughtAt);
+  const soldAtInput = useInputVal(props, props.soldAt);
+  const pAndLInput = useInputVal(props, props.pAndL);
   return (
     <div className="data-row-input" key={props.id}>
       <input style={{ width: '10%' }}
