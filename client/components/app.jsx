@@ -29,8 +29,16 @@ export default class App extends React.Component {
     };
     this.updateState = this.updateState.bind(this);
   }
-  updateState(tradeID) {
-
+  updateState(tradeID, valName, newVal) {
+    let tradesCopy = Object.assign(this.state.trades);
+    for (let key in tradesCopy) {
+      if (tradesCopy[key]['ID'] === tradeID) {
+        tradesCopy[key]['' + valName] = newVal;
+      }
+    }
+    this.setState({
+      trades: tradesCopy
+    });
   }
   render() {
     return (
