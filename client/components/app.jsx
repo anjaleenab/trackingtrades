@@ -23,11 +23,10 @@ export default class App extends React.Component {
         'Price-Sold': 166.01,
         'Profit-Loss': 5.80
       }],
-      loggedIn: false,
-      tradeLogMode: false,
-      editTrade: false
+      toDelete: []
     };
     this.updateState = this.updateState.bind(this);
+    this.deleteTrades = this.deleteTrades.bind(this);
   }
   updateState(tradeID, valName, newVal) {
     let tradesCopy = Object.assign(this.state.trades);
@@ -40,9 +39,28 @@ export default class App extends React.Component {
       trades: tradesCopy
     });
   }
+  deleteTrades() {
+    let tradesToDelete = Object.assign(this.state.trades.toDelete);
+    let tradesCopy = Object.assign(this.state.trades);
+    let leftOverTrades = [];
+    // let tradeNumber = 0;
+    // while (tradeNumber < tradesToDelete.length) {
+    //   for (let key in tradesCopy) {
+    //     if (tradesCopy[key]['ID'] !== tradesToDelete[tradeNumber]) {
+    //       leftOverTrades.push(tradesCopy[key]);
+    //     }
+    //   }
+    //   tradeNumber++;
+    // }
+    leftOverTrades = tradesToDelete.filter(tradeID => tradesCopy['ID'] !== tradeID);
+    this.setState({
+      trades: leftOverTrades
+    });
+  }
   render() {
     return (
-      <LoginPage trades={this.state.trades} stateUpdate={this.updateState}></LoginPage>
+      <LoginPage trades={this.state.trades} stateUpdate={this.updateState}
+        deleteTrades={this.deleteTrades} tradesForDelete={this.tradesToDelete}> </LoginPage>
     );
   }
 }

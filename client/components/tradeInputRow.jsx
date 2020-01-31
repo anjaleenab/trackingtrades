@@ -21,18 +21,18 @@ export default function TradeInputRow(props) {
   const pAndLInput = useInputVal(props, props.pAndL);
   return (
     <div className="data-row-input" key={props.id}>
-      {props.deleteRow ? <DeleteInput id={props.tradeID} /> : null}
+      {props.deleteRow ? <DeleteInput TradeID={props.tradeID} tradesForDelete={props.tradesForDelete}/> : null}
       <input style={{ width: '10%' }}
         type="text" name="Date" defaultValue={props.date} {...dateInput}></input>
       <input style={{ width: '15%' }}
         type="text" name="Stock" defaultValue={props.stock} {...stockInput}></input>
       <input style={{ width: '15%' }}
         type="text" name="Quantity" defaultValue={props.quantity} {...quantityInput}></input>
-      <input style={{ width: '18%' }}
+      <input style={{ width: '18.5%' }}
         type="text" name="Price-Bought" defaultValue={props.boughtAt} {...boughtAtInput}></input>
-      <input style={{ width: '18%' }}
+      <input style={{ width: '18.5%' }}
         type="text" name="Price-Sold" defaultValue={props.soldAt} {...soldAtInput}></input>
-      <input style={{ width: '18%' }}
+      <input style={{ width: '18.5%' }}
         type="text" name="Profit-Loss" defaultValue={props.pAndL} {...pAndLInput}></input>
     </div>
   );
