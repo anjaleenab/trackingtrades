@@ -35,7 +35,7 @@ export default function TradeLog(props) {
         : null}
       {editTrade
         ? <React.Fragment>
-          <TradeInput trades={props.trades} edit={editTrade} delete={deleteTrade} stateUpdate={props.stateUpdate}/>
+          <TradeInput trades={props.trades} edit={editTrade} delete={deleteTrade} stateUpdate={props.stateUpdate} tradesForDelete={props.tradesForDelete}/>
           <div>
             <button onClick={() => { setEditTrade(false); }}>Save Edits
             </button>

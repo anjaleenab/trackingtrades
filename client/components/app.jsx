@@ -59,7 +59,8 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <LoginPage trades={this.state.trades} stateUpdate={this.updateState} deleteTrades={this.deleteTrades}> </LoginPage>
+      <LoginPage trades={this.state.trades} stateUpdate={this.updateState}
+        deleteTrades={this.deleteTrades} tradesForDelete={this.tradesToDelete}> </LoginPage>
     );
   }
 }
