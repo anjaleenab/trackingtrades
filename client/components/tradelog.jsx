@@ -42,8 +42,8 @@ export default function TradeLog(props) {
             </button>
             {!deleteTrade ? <button onClick={() => { setDeleteTrade(true); }}>Delete A Trade</button> : null }
             {deleteTrade ? <button onClick={() => {
+              props.deleteTrades();
               setDeleteTrade(false);
-              props.deleteTrade();
             }}>Confirm Deletion</button> : null}
           </div>
         </React.Fragment>
