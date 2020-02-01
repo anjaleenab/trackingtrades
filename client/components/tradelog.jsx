@@ -5,6 +5,7 @@ import TradeInput from './tradeinput';
 export default function TradeLog(props) {
   const [editTrade, setEditTrade] = useState(false);
   const [deleteTrade, setDeleteTrade] = useState(false);
+  // const [enterTrade, setEnterTrade] = useState(true);
   return (
     <div>
       <table className ="trades">
@@ -29,10 +30,12 @@ export default function TradeLog(props) {
           ? <tbody><TradeLogRow trades={props.trades} edit={editTrade} /></tbody>
           : null}
       </table>
-      {!editTrade
-        ? <button onClick={() => { setEditTrade(true); }}>Edit Trade
-        </button>
-        : null}
+      {!props.trades.length
+        ? <button>Add Trade</button>
+        : !editTrade
+          ? <button onClick={() => { setEditTrade(true); }}>Edit Trade
+          </button>
+          : null}
       {editTrade
         ? <React.Fragment>
           <TradeInput trades={props.trades} edit={editTrade} delete={deleteTrade} stateUpdate={props.stateUpdate}

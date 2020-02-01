@@ -5,24 +5,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      trades: [{
-        'ID': 1,
-        'Date': '01-22-2020',
-        'Stock': 'MSFT',
-        'Quantity': 20,
-        'Price-Bought': 165.72,
-        'Price-Sold': 166.01,
-        'Profit-Loss': 5.80
-      },
-      {
-        'ID': 2,
-        'Date': '01-22-2020',
-        'Stock': 'ROKU',
-        'Quantity': 20,
-        'Price-Bought': 165.72,
-        'Price-Sold': 166.01,
-        'Profit-Loss': 5.80
-      }],
+      trades: [],
       toDelete: []
     };
     this.updateState = this.updateState.bind(this);
@@ -38,6 +21,23 @@ export default class App extends React.Component {
     }
     this.setState({
       trades: tradesCopy
+    });
+  }
+  addTrade() {
+    let initialTrades = Object.assign(this.state.trades);
+    let initializer = initialTrades[initialTrades.length - 1]['ID'] + 1;
+    const newTrade = {
+      'ID': initializer,
+      'Date': '',
+      'Stock': '',
+      'Quantity': '',
+      'Price-Bought': '',
+      'Price-Sold': '',
+      'Profit-Loss': ''
+    };
+    initialTrades.push(newTrade);
+    this.setState({
+      trades: initialTrades
     });
   }
   setTradesForDelete(tradeIDList) {
