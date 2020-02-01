@@ -6,6 +6,8 @@ export default function TradeLog(props) {
   const [editTrade, setEditTrade] = useState(false);
   const [deleteTrade, setDeleteTrade] = useState(false);
   const [enterTrade, setEnterTrade] = useState(false);
+  const [isEditable, setEditable] = useState(false);
+
   return (
     <div>
       <table className ="trades">
@@ -35,18 +37,24 @@ export default function TradeLog(props) {
           setEnterTrade(true);
           props.addTrade();
         }}>Add Trade</button>
-        : !editTrade
-          ? <button onClick={() => { setEditTrade(true); }}>Edit Trade
-          </button>
-          : null}
+        : enterTrade ? null
+          : null
+      }
+      { !editTrade && isEditable
+        ? <button onClick={() => { setEditTrade(true); }}>Edit Trade
+        </button>
+        : null}
       {editTrade || enterTrade
         ? <React.Fragment>
           <TradeInput trades={props.trades} edit={editTrade} delete={deleteTrade} stateUpdate={props.stateUpdate}
             tradesToDelete={props.tradesToDelete} setTradesForDelete={props.setTradesForDelete} />
           <div>
-            <button onClick={() => { setEditTrade(false); }}>Save Edits
-            </button>
-            {!deleteTrade ? <button onClick={() => { setDeleteTrade(true); }}>Delete A Trade</button> : null }
+            {editTrade ? <button onClick={() => { setEditTrade(false); }}>Save Edits
+            </button> : enterTrade ? <button onClick={() => {
+              setEnterTrade(false);
+              setEditable(true);
+            }}>Confirm Addition</button> : null}
+            {!deleteTrade && !enterTrade ? <button onClick={() => { setDeleteTrade(true); }}>Delete A Trade</button> : null }
             {deleteTrade ? <button onClick={() => {
               props.deleteTrades();
               setDeleteTrade(false);
