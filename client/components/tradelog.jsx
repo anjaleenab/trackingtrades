@@ -5,6 +5,9 @@ import TradeInput from './tradeinput';
 export default function TradeLog(props) {
   const [editTrade, setEditTrade] = useState(false);
   const [deleteTrade, setDeleteTrade] = useState(false);
+  const [enterTrade, setEnterTrade] = useState(false);
+  const [isEditable, setEditable] = useState(false);
+
   return (
     <div>
       <table className ="trades">
@@ -25,25 +28,36 @@ export default function TradeLog(props) {
             <th>Profit/Loss</th>
           </tr>}
         </thead>
-        {!editTrade
+        {!editTrade && !enterTrade
           ? <tbody><TradeLogRow trades={props.trades} edit={editTrade} /></tbody>
           : null}
       </table>
-      {!editTrade
+      {!props.trades.length
+        ? <button onClick={() => {
+          setEnterTrade(true);
+          props.addTrade();
+        }}>Add Trade</button>
+        : enterTrade ? null
+          : null
+      }
+      { !editTrade && isEditable
         ? <button onClick={() => { setEditTrade(true); }}>Edit Trade
         </button>
         : null}
-      {editTrade
+      {editTrade || enterTrade
         ? <React.Fragment>
           <TradeInput trades={props.trades} edit={editTrade} delete={deleteTrade} stateUpdate={props.stateUpdate}
             tradesToDelete={props.tradesToDelete} setTradesForDelete={props.setTradesForDelete} />
           <div>
-            <button onClick={() => { setEditTrade(false); }}>Save Edits
-            </button>
-            {!deleteTrade ? <button onClick={() => { setDeleteTrade(true); }}>Delete A Trade</button> : null }
+            {editTrade ? <button onClick={() => { setEditTrade(false); }}>Save Edits
+            </button> : enterTrade ? <button onClick={() => {
+              setEnterTrade(false);
+              setEditable(true);
+            }}>Confirm Addition</button> : null}
+            {!deleteTrade && !enterTrade ? <button onClick={() => { setDeleteTrade(true); }}>Delete A Trade</button> : null }
             {deleteTrade ? <button onClick={() => {
+              props.deleteTrades();
               setDeleteTrade(false);
-              props.deleteTrade();
             }}>Confirm Deletion</button> : null}
           </div>
         </React.Fragment>
