@@ -29,7 +29,6 @@ export default function LoginPage(props) {
           </div>
         </div>
       </React.Fragment>
-
     );
   } else {
     return (

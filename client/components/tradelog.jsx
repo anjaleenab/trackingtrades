@@ -6,7 +6,6 @@ export default function TradeLog(props) {
   const [editTrade, setEditTrade] = useState(false);
   const [deleteTrade, setDeleteTrade] = useState(false);
   const [enterTrade, setEnterTrade] = useState(false);
-  // make it so user can add trades when there already are some
   return (
     <div>
       <table className ="trades">
