@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import LoginPage from './login';
 
 export default class App extends React.Component {
@@ -72,10 +73,12 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <LoginPage trades={this.state.trades} stateUpdate={this.updateState}
-        deleteTrades={this.deleteTrades} setTradesForDelete={this.setTradesForDelete}
-        tradesToDelete={this.state.toDelete} addTrade ={this.addTrade}>
-      </LoginPage>
+      <Router>
+        <Route path='/' exact component = {LoginPage} trades={this.state.trades} stateUpdate={this.updateState}
+          deleteTrades={this.deleteTrades} setTradesForDelete={this.setTradesForDelete}
+          tradesToDelete={this.state.toDelete} addTrade={this.addTrade} />
+      </Router>
+
     );
   }
 }
