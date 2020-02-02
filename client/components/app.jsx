@@ -77,12 +77,8 @@ export default class App extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route path='/' exact component = {LoginPage} trades={this.state.trades} stateUpdate={this.updateState}
-            deleteTrades={this.deleteTrades} setTradesForDelete={this.setTradesForDelete}
-            tradesToDelete={this.state.toDelete} addTrade={this.addTrade} />
-          <Route path='/dashboard' render={ () => <Dashboard trades={this.state.trades} stateUpdate={this.updateState}
-            deleteTrades={this.deleteTrades} setTradesForDelete={this.setTradesForDelete}
-            tradesToDelete={this.state.toDelete} addTrade={this.addTrade} /> } />
+          <Route path='/' exact component = {LoginPage} />
+          <Route path='/dashboard' render={ () => <Dashboard trades={this.state.trades} /> } />
           <Route path='/tradeLog' render={ () => <TradeLog trades={this.state.trades} stateUpdate={this.stateUpdate}
             deleteTrades={this.deleteTrades} setTradesForDelete={this.setTradesForDelete}
             tradesToDelete={this.state.toDelete} addTrade={this.addTrade} /> } />
