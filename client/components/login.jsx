@@ -26,7 +26,6 @@ export default function LoginPage(props) {
               className="login-btn"
               onClick={() => {
                 setloggedIn(!loggedIn);
-                // return <Redirect to='/dashboard' />;
               }}
             >Log In</button>
           </div>
@@ -42,7 +41,3 @@ export default function LoginPage(props) {
     );
   }
 }
-
-// <Dashboard trades={props.trades} stateUpdate={props.stateUpdate}
-//   deleteTrades={props.deleteTrades} setTradesForDelete={props.setTradesForDelete}
-//   tradesToDelete={props.tradesToDelete} addTrade={props.addTrade} />
