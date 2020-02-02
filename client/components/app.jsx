@@ -58,18 +58,17 @@ export default class App extends React.Component {
     let tradesToDelete = Object.assign(this.state.toDelete);
     let tradesCopy = Object.assign(this.state.trades);
     let leftOverTrades = [];
-    let tradeNumber = 0;
-    while (tradeNumber < tradesToDelete.length) {
-      for (let key in tradesCopy) {
-        if (tradesCopy[key]['ID'] !== tradesToDelete[tradeNumber]) {
-          leftOverTrades.push(tradesCopy[key]);
-        }
+    for (let key in tradesCopy) {
+      if (!tradesToDelete.includes(parseInt(tradesCopy[key]['ID']))) {
+        leftOverTrades.push(tradesCopy[key]);
       }
-      tradeNumber++;
     }
-    this.setState({
-      trades: leftOverTrades
-    });
+    if (tradesToDelete) {
+      this.setState({
+        trades: leftOverTrades,
+        toDelete: []
+      });
+    }
   }
   render() {
     return (
