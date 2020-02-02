@@ -3,9 +3,9 @@ import React from 'react';
 export default function Navbar(props) {
   return (
     <div>
-      <button><a href="#dashboard">Dashboard</a></button>
-      <button><a href="#tradeLog">Trade Log</a></button>
-      <button><a href="#loginPage">Log Out</a></button>
+      <button>Dashboard</button>
+      <button>Trade Log</button>
+      <button>Log Out</button>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from './header';
-import Dashboard from './dashboard';
+import { Redirect } from 'react-router-dom';
 
 export default function LoginPage(props) {
   const [loggedIn, setloggedIn] = useState(false);
@@ -24,7 +24,10 @@ export default function LoginPage(props) {
             </div>
             <button
               className="login-btn"
-              onClick={() => setloggedIn(!loggedIn)}
+              onClick={() => {
+                setloggedIn(!loggedIn);
+                // return <Redirect to='/dashboard' />;
+              }}
             >Log In</button>
           </div>
         </div>
@@ -33,11 +36,13 @@ export default function LoginPage(props) {
   } else {
     return (
       <React.Fragment>
-        <Header status={loggedIn} />
-        <Dashboard trades={props.trades} stateUpdate={props.stateUpdate}
-          deleteTrades={props.deleteTrades} setTradesForDelete={props.setTradesForDelete}
-          tradesToDelete={props.tradesToDelete} addTrade={props.addTrade}/>
+        <Header />
+        <Redirect to='/dashboard' status={loggedIn}/>
       </React.Fragment>
     );
   }
 }
+
+// <Dashboard trades={props.trades} stateUpdate={props.stateUpdate}
+//   deleteTrades={props.deleteTrades} setTradesForDelete={props.setTradesForDelete}
+//   tradesToDelete={props.tradesToDelete} addTrade={props.addTrade} />
