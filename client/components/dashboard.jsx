@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import Header from './header';
-import TradeLog from './tradelog';
+import { Redirect } from 'react-router-dom';
 
 export default function Dashboard(props) {
   const [tradeLogMode, setTradeLogMode] = useState(false);
   let component;
   if (tradeLogMode) {
-    component = <TradeLog trades={props.trades} stateUpdate={props.stateUpdate}
-      deleteTrades={props.deleteTrades} setTradesForDelete={props.setTradesForDelete}
-      tradesToDelete={props.tradesToDelete} addTrade={props.addTrade} />;
+    component = <Redirect to='tradeLog' />;
   } else {
     component = <main className="mainDashboard">
       <div className="topDash">
@@ -27,7 +25,7 @@ export default function Dashboard(props) {
   }
   return (
     <React.Fragment>
-      <Header status={props.status} />
+      <Header status={true} />
       {component}
     </React.Fragment>
   );

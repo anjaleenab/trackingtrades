@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TradeLogRow from './tradelogrow';
 import TradeInput from './tradeinput';
+import Header from './header';
 
 export default function TradeLog(props) {
   const [editTrade, setEditTrade] = useState(false);
@@ -8,6 +9,7 @@ export default function TradeLog(props) {
   const [enterTrade, setEnterTrade] = useState(false);
   return (
     <div>
+      <Header status={true} />
       <table className ="trades">
         <thead>
           {deleteTrade ? <tr className="headers-row">
