@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from './header';
 import TradeLog from './tradelog';
 
 export default function Dashboard(props) {
@@ -7,7 +8,7 @@ export default function Dashboard(props) {
   if (tradeLogMode) {
     component = <TradeLog trades={props.trades} stateUpdate={props.stateUpdate}
       deleteTrades={props.deleteTrades} setTradesForDelete={props.setTradesForDelete}
-      tradesToDelete={props.tradesToDelete} addTrade={props.addTrade} tradeLogMode={tradeLogMode}/>;
+      tradesToDelete={props.tradesToDelete} addTrade={props.addTrade} />;
   } else {
     component = <main className="mainDashboard">
       <div className="topDash">
@@ -25,6 +26,9 @@ export default function Dashboard(props) {
     </main>;
   }
   return (
-    component
+    <React.Fragment>
+      <Header status={props.status} />
+      {component}
+    </React.Fragment>
   );
 }
