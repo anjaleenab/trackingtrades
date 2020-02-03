@@ -13,6 +13,10 @@ body {
   margin: 0px;
 }
 
+.nav {
+  float: right;
+}
+
 .login {
   display: flex;
   margin-top: 5em;
@@ -99,6 +103,7 @@ label {
 
 [class^=stat] {
   background-color: #c4c4c4;
+  font-family: 'Loved by the King', cursive;
 }
 
 .trades {
