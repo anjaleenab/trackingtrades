@@ -7,13 +7,10 @@ export default function Header(props) {
       <header style={{
         fontSize: '1em',
         marginTop: '1em'
-        // display: 'flex',
-        // alignItems: 'center'
       }} className="header">
         <h1 className="heading">Tracking Trades
           <Navbar />
         </h1>
-
       </header>
     );
   } else {

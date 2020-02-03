@@ -9,7 +9,7 @@ export default function Navbar(props) {
       onClick={() => setShow(true)}>&#9776;</button>;
   } else {
     component = <div className="nav">
-      <button className="nav-btn" onClick={() => setShow(false)}>X</button>;
+      <button className="nav-btn" onClick={() => setShow(false)}>X</button>
       <span>
         <h1 style={{ margin: '0' }}>Tracking Trades</h1>
       </span>
