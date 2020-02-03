@@ -6,12 +6,11 @@ export default function Header(props) {
     return (
       <header style={{
         fontSize: '1em',
-        marginTop: '1em',
-        display: 'flex',
-        alignItems: 'center'
+        marginTop: '1em'
       }} className="header">
-        <h1 className="heading">Tracking Trades</h1>
-        <Navbar />
+        <h1 className="heading">Tracking Trades
+          <Navbar />
+        </h1>
       </header>
     );
   } else {
