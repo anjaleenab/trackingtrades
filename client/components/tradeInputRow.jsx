@@ -8,9 +8,16 @@ const useInputVal = (props, initialValue) => {
     onChange: event => {
       setValue(event.target.value);
       props.stateUpdate(props.tradeID, event.target.name, event.target.value);
-    }
+    },
+    validation: validate(props, props.name)
   };
 };
+
+function validate(props, name) {
+  if (!event.target.value) {
+    return 'className="error';
+  }
+}
 
 export default function TradeInputRow(props) {
   const dateInput = useInputVal(props, props.date);

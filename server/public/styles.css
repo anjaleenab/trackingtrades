@@ -20,7 +20,7 @@ body {
   width: 8em;
   right: 0;
   top: 0;
-  box-shadow: 0px 2px 20px black;
+  box-shadow: 0px 2px 20px rgba(0,0,0, .85);
 }
 
 .navLinks {
