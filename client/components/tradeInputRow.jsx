@@ -34,7 +34,7 @@ export default function TradeInputRow(props) {
       <input style={{ width: '18.5%' }}
         type="text" name="Price-Sold" defaultValue={props.soldAt} {...soldAtInput}></input>
       <input style={{ width: '18.5%' }}
-        type="text" name="Profit-Loss" defaultValue={props.boughtAt - props.soldAt} {...pAndLInput}></input>
+        type="text" name="Profit-Loss" defaultValue={props.pAndL} {...pAndLInput}></input>
     </div>
   );
 }
