@@ -45,8 +45,10 @@ export default function TradeLog(props) {
                 props.addTrade();
               }}>Add Another Trade</button>
               <button onClick={() => {
-                setEnterTrade(false);
-                setEditTrade(false);
+                if (props.checkErrors()) {
+                  setEnterTrade(false);
+                  setEditTrade(false);
+                }
               }}>Confirm Addition</button>
               {!deleteTrade && !enterTrade ? <button onClick={() => { setDeleteTrade(true); }}>Delete A Trade</button> : null}
               {deleteTrade ? <button onClick={() => {
@@ -54,7 +56,11 @@ export default function TradeLog(props) {
                 setEditTrade(false);
                 setDeleteTrade(false);
               }}>Confirm Deletion</button> : null}
-              <button onClick={() => { setEditTrade(false); }}>Save Edits
+              <button onClick={() => {
+                if (props.checkErrors()) {
+                  setEditTrade(false);
+                }
+              }}>Save Edits
               </button></div> : null}
           </div>
         </React.Fragment>

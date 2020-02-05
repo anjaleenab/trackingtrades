@@ -23,6 +23,7 @@ export default class App extends React.Component {
     this.deleteTrades = this.deleteTrades.bind(this);
     this.setTradesForDelete = this.setTradesForDelete.bind(this);
     this.addTrade = this.addTrade.bind(this);
+    this.checkForErrors = this.checkForErrors.bind(this);
   }
   updateState(tradeID, valName, newVal) {
     let tradesCopy = Object.assign(this.state.trades);
@@ -73,6 +74,12 @@ export default class App extends React.Component {
       });
     }
   }
+  checkForErrors() {
+    const errors = document.querySelectorAll('.error');
+    if (!errors) {
+      return true;
+    }
+  }
   render() {
     return (
       <Router>
@@ -81,7 +88,7 @@ export default class App extends React.Component {
           <Route path='/dashboard' render={ () => <Dashboard trades={this.state.trades} /> } />
           <Route path='/tradeLog' render={ () => <TradeLog trades={this.state.trades} stateUpdate={this.updateState}
             deleteTrades={this.deleteTrades} setTradesForDelete={this.setTradesForDelete}
-            tradesToDelete={this.state.toDelete} addTrade={this.addTrade} /> } />
+            tradesToDelete={this.state.toDelete} addTrade={this.addTrade} checkErrors={this.checkForErrors}/> } />
         </Switch>
       </Router>
 

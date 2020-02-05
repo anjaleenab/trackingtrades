@@ -14,12 +14,13 @@ const useInputVal = (props, initialValue) => {
 };
 
 function validate(props, name) {
-  if (!event.target.value || props.date === '') {
+  console.log(document.querySelector('input').getAttribute('style'));
+  if (!event.target.value) {
     console.log(event.target.closest('.data-row-input'));
     event.target.closest('.data-row-input').setAttribute('className', 'error');
     event.target.setAttribute('className', 'error');
     let width = event.target.getAttribute('style');
-    event.target.setAttribute('style', width + ' background-color: red');
+    event.target.setAttribute('style', width + ' background-color: #FFA98F');
   } else {
     console.log('here');
     console.log(event.target.closest('.data-row-input'));
@@ -38,17 +39,23 @@ export default function TradeInputRow(props) {
     <div className="data-row-input" key={props.id} id={'input' + props.tradeID}>
       {props.deleteRow ? <DeleteInput TradeID={props.tradeID} setTradesForDelete={props.setTradesForDelete}
         tradesToDelete={props.tradesToDelete} /> : null}
-      <input style={props.date === '' ? { width: '10%', backgroundColor: 'red' } : { width: '10%' }}
+      <input style={props.date === '' ? { width: '10%', backgroundColor: '#FFA98F' } : { width: '10%' } }
+        className={props.date === '' ? 'error' : ''}
         type="text" name="Date" defaultValue={props.date} {...dateInput}></input>
-      <input style={props.stock === '' ? { width: '15%', backgroundColor: 'red' } : { width: '15%' }}
+      <input style={props.stock === '' ? { width: '15%', backgroundColor: '#FFA98F' } : { width: '15%' }}
+        className={props.stock === '' ? 'error' : ''}
         type="text" name="Stock" defaultValue={props.stock} {...stockInput}></input>
-      <input style={props.quantity === '' ? { width: '15%', backgroundColor: 'red' } : { width: '15%' }}
+      <input style={props.quantity === '' ? { width: '15%', backgroundColor: '#FFA98F' } : { width: '15%' }}
+        className={props.quantity === '' ? 'error' : ''}
         type="text" name="Quantity" defaultValue={props.quantity} {...quantityInput}></input>
-      <input style={props.boughtAt === '' ? { width: '18.5%', backgroundColor: 'red' } : { width: '18.5%' }}
+      <input style={props.boughtAt === '' ? { width: '18.5%', backgroundColor: '#FFA98F' } : { width: '18.5%' }}
+        className={props.boughtAt === '' ? 'error' : ''}
         type="text" name="Price-Bought" defaultValue={props.boughtAt} {...boughtAtInput}></input>
-      <input style={props.soldAt === '' ? { width: '18.5%', backgroundColor: 'red' } : { width: '18.5%' }}
+      <input style={props.soldAt === '' ? { width: '18.5%', backgroundColor: '#FFA98F' } : { width: '18.5%' }}
+        className={props.soldAt === '' ? 'error' : ''}
         type="text" name="Price-Sold" defaultValue={props.soldAt} {...soldAtInput}></input>
-      <input style={props.pAndL === '' ? { width: '18.5%', backgroundColor: 'red' } : { width: '18.5%' }}
+      <input style={props.pAndL === '' ? { width: '18.5%', backgroundColor: '#FFA98F' } : { width: '18.5%' }}
+        className={props.pAndL === '' ? 'error' : ''}
         type="text" name="Profit-Loss" defaultValue={props.pAndL} {...pAndLInput}></input>
     </div>
   );
