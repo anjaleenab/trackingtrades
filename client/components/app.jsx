@@ -23,6 +23,7 @@ export default class App extends React.Component {
     this.deleteTrades = this.deleteTrades.bind(this);
     this.setTradesForDelete = this.setTradesForDelete.bind(this);
     this.addTrade = this.addTrade.bind(this);
+    this.checkForEmptyValues = this.checkForEmptyValues.bind(this);
   }
   updateState(tradeID, valName, newVal) {
     let tradesCopy = Object.assign(this.state.trades);
@@ -71,6 +72,12 @@ export default class App extends React.Component {
         trades: leftOverTrades,
         toDelete: []
       });
+    }
+  }
+  checkForErrors() {
+    const errors = document.querySelectorAll('error');
+    if (errors) {
+      return true;
     }
   }
   render() {
