@@ -14,7 +14,7 @@ const useInputVal = (props, initialValue) => {
 };
 
 function validate(props, name) {
-  if (!event.target.value) {
+  if (!event.target.value || props.date === '') {
     console.log(event.target.closest('.data-row-input'));
     event.target.closest('.data-row-input').setAttribute('className', 'error');
     event.target.setAttribute('className', 'error');
@@ -38,17 +38,17 @@ export default function TradeInputRow(props) {
     <div className="data-row-input" key={props.id} id={'input' + props.tradeID}>
       {props.deleteRow ? <DeleteInput TradeID={props.tradeID} setTradesForDelete={props.setTradesForDelete}
         tradesToDelete={props.tradesToDelete} /> : null}
-      <input style={{ width: '10%' }}
+      <input style={props.date === '' ? { width: '10%', backgroundColor: 'red' } : { width: '10%' }}
         type="text" name="Date" defaultValue={props.date} {...dateInput}></input>
-      <input style={{ width: '15%' }}
+      <input style={props.stock === '' ? { width: '15%', backgroundColor: 'red' } : { width: '15%' }}
         type="text" name="Stock" defaultValue={props.stock} {...stockInput}></input>
-      <input style={{ width: '15%' }}
+      <input style={props.quantity === '' ? { width: '15%', backgroundColor: 'red' } : { width: '15%' }}
         type="text" name="Quantity" defaultValue={props.quantity} {...quantityInput}></input>
-      <input style={{ width: '18.5%' }}
+      <input style={props.boughtAt === '' ? { width: '18.5%', backgroundColor: 'red' } : { width: '18.5%' }}
         type="text" name="Price-Bought" defaultValue={props.boughtAt} {...boughtAtInput}></input>
-      <input style={{ width: '18.5%' }}
+      <input style={props.soldAt === '' ? { width: '18.5%', backgroundColor: 'red' } : { width: '18.5%' }}
         type="text" name="Price-Sold" defaultValue={props.soldAt} {...soldAtInput}></input>
-      <input style={{ width: '18.5%' }}
+      <input style={props.pAndL === '' ? { width: '18.5%', backgroundColor: 'red' } : { width: '18.5%' }}
         type="text" name="Profit-Loss" defaultValue={props.pAndL} {...pAndLInput}></input>
     </div>
   );

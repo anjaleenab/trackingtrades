@@ -14,7 +14,8 @@ export default function TradeInput(props) {
       return (
         <TradeInputRow key={id} tradeID={id} date={date} stock={stock} quantity={quantity}
           boughtAt={boughtAt} soldAt={soldAt} pAndL={pAndL} stateUpdate={props.stateUpdate}
-          tradesToDelete={props.tradesToDelete} deleteRow={props.delete} setTradesForDelete={props.setTradesForDelete}
+          tradesToDelete={props.tradesToDelete} deleteRow={props.delete}
+          setTradesForDelete={props.setTradesForDelete}
         />
       );
     })
