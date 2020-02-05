@@ -38,6 +38,7 @@ export default function TradeLog(props) {
         ? <React.Fragment>
           <TradeInput trades={props.trades} edit={editTrade} delete={deleteTrade} stateUpdate={props.stateUpdate}
             tradesToDelete={props.tradesToDelete} setTradesForDelete={props.setTradesForDelete} />
+          <div id="errorMessage"></div>
           <div className="editButtons">
 
             {editTrade
