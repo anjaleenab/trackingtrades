@@ -75,9 +75,8 @@ export default class App extends React.Component {
     }
   }
   checkForErrors() {
-    // console.log(errors);
-    const errors = document.querySelectorAll('error');
-    if (errors) {
+    const errors = document.querySelectorAll('.error');
+    if (!errors) {
       return true;
     }
   }
