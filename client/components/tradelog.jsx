@@ -38,19 +38,23 @@ export default function TradeLog(props) {
         ? <React.Fragment>
           <TradeInput trades={props.trades} edit={editTrade} delete={deleteTrade} stateUpdate={props.stateUpdate}
             tradesToDelete={props.tradesToDelete} setTradesForDelete={props.setTradesForDelete} />
-          <div>
+          <div id="errorMessage"></div>
+          <div className="editButtons">
 
             {editTrade
               ? <div><button onClick={() => {
+                setEnterTrade(true);
                 props.addTrade();
               }}>Add Another Trade</button>
-              <button onClick={() => {
+              {enterTrade ? <button onClick={() => {
                 if (props.checkErrors()) {
                   setEnterTrade(false);
                   setEditTrade(false);
                 }
               }}>Confirm Addition</button>
-              {!deleteTrade && !enterTrade ? <button onClick={() => { setDeleteTrade(true); }}>Delete A Trade</button> : null}
+                : null}
+
+              {!deleteTrade ? <button onClick={() => { setDeleteTrade(true); }}>Delete A Trade</button> : null}
               {deleteTrade ? <button onClick={() => {
                 props.deleteTrades();
                 setEditTrade(false);
@@ -73,8 +77,8 @@ export default function TradeLog(props) {
         }}>Add Trade</button> : null
       }
       {!editTrade && !enterTrade
-        ? <button onClick={() => { setEditTrade(true); }}>Edit Trade
-        </button>
+        ? <div className="editButton"><button onClick={() => { setEditTrade(true); }}>Edit Trade
+        </button></div>
         : null}
     </div>
   );
