@@ -8,14 +8,22 @@ const useInputVal = (props, initialValue) => {
     onChange: event => {
       setValue(event.target.value);
       props.stateUpdate(props.tradeID, event.target.name, event.target.value);
-    },
-    validation: validate(props, props.name)
+      validate(props, props.name);
+    }
   };
 };
 
 function validate(props, name) {
   if (!event.target.value) {
-    return 'className="error';
+    console.log(event.target.closest('.data-row-input'));
+    event.target.closest('.data-row-input').setAttribute('className', 'error');
+    event.target.setAttribute('className', 'error');
+    let width = event.target.getAttribute('style');
+    event.target.setAttribute('style', width + ' background-color: red');
+  } else {
+    console.log('here');
+    console.log(event.target.closest('.data-row-input'));
+    // console.log(event.target.closest('.data-row-input').setAttribute('className', 'error'));
   }
 }
 
