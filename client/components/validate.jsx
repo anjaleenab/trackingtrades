@@ -1,4 +1,3 @@
-import React from 'react';
 
 export default function Validate(props, name) {
   console.log(document.querySelector('input').getAttribute('style'));
@@ -38,20 +37,25 @@ export default function Validate(props, name) {
           errorDiv.textContent = '';
         }
       } else if (event.target.value.length !== 10) {
-        console.log(event.target.value.length);
         errorDiv.textContent += 'Date must be in date format Ex: 01-01-' + date.getFullYear() +
           ' or Ex: 01/01/' + date.getFullYear();
         showError();
       }
-      console.log('here');
-      console.log(event.target.closest('.data-row-input'));
-      // console.log(event.target.closest('.data-row-input').setAttribute('className', 'error'));
+    } else if (name === 'Quantity') {
+      let letters = /[A-z]/;
+      let symbols = /[\\/!@#$%^&*(){}`"'~|><;:/ = +]+/;
+      let word = event.target.value[event.target.value.length - 1];
+      if (letters.test(word) || symbols.test(word)) {
+        event.target.value = event.target.value.substring(0, word);
+      }
     }
   }
 }
 
+// console.log(event.target.closest('.data-row-input'));
+// console.log(event.target.closest('.data-row-input').setAttribute('className', 'error'));
+
 function showError() {
   let width = event.target.getAttribute('style');
-  // console.log(event.target.attribute());
   event.target.setAttribute('style', width + 'background-color: #FFA98F;');
 }
