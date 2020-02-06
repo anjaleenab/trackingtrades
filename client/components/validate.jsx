@@ -1,17 +1,21 @@
 
 export default function Validate(props, name) {
-  console.log(document.querySelector('input').getAttribute('style'));
   let errorDiv = document.getElementById('errorMessage');
-  errorDiv.textContent = '';
+  errorDiv.textContent = 'All inputs should have a value';
   if (!event.target.value) {
     event.target.closest('.data-row-input').setAttribute('className', 'error');
     showError();
-    // let width = event.target.getAttribute('style');
-    // event.target.setAttribute('style', width + ' backgroundColor: #FFA98F');
-  } else {
+  } else if (event.target.value) {
     if (name === 'Date') {
+      let letters = /[A-z]/;
+      let symbols = /[\\/!@#$%^&*(){}`"'~|><;:/ = +]+/;
+      let word = event.target.value[event.target.value.length - 1];
       const date = new Date();
-      if (event.target.value.length === 10) {
+      if (letters.test(word) || symbols.test(word)) {
+        event.target.value = event.target.value.substring(0, event.target.value.length - 1);
+        errorDiv.textContent = event.target.name + ' cannot have letters';
+        showError();
+      } else if (event.target.value.length === 10) {
         const values = event.target.value.split('');
         const numbers = values.map(value => {
           if (value === '-' || value === '/') {
@@ -22,7 +26,7 @@ export default function Validate(props, name) {
             if (validNum.test(number)) {
               return typeof (number);
             } else {
-              errorDiv.textContent += 'Date must be in date format Ex: 01-01-' + date.getFullYear() +
+              errorDiv.textContent = 'Date must be in date format Ex: 01-01-' + date.getFullYear() +
                 ' or Ex: 01/01/' + date.getFullYear();
               showError();
             }
@@ -30,32 +34,34 @@ export default function Validate(props, name) {
         });
         let valid = ['number', 'number', 'string', 'number', 'number', 'string', 'number', 'number', 'number', 'number'];
         if (numbers.join('') !== valid.join('')) {
-          errorDiv.textContent += 'Date must be in date format Ex: 01-01-' + date.getFullYear() +
+          errorDiv.textContent = 'Date must be in date format Ex: 01-01-' + date.getFullYear() +
             ' or Ex: 01/01/' + date.getFullYear();
           showError();
         } else {
+          showError('#FFFFFF;');
           errorDiv.textContent = '';
         }
       } else if (event.target.value.length !== 10) {
-        errorDiv.textContent += 'Date must be in date format Ex: 01-01-' + date.getFullYear() +
+        errorDiv.textContent = 'Date must be in date format Ex: 01-01-' + date.getFullYear() +
           ' or Ex: 01/01/' + date.getFullYear();
         showError();
       }
-    } else if (name === 'Quantity') {
+    } else if (name === 'Quantity' || name === 'Price-Bought' || name === 'Price-Sold' || name === 'Profit-Loss') {
       let letters = /[A-z]/;
       let symbols = /[\\/!@#$%^&*(){}`"'~|><;:/ = +]+/;
       let word = event.target.value[event.target.value.length - 1];
       if (letters.test(word) || symbols.test(word)) {
-        event.target.value = event.target.value.substring(0, word);
+        event.target.value = event.target.value.substring(0, event.target.value.length - 1);
+        errorDiv.textContent = event.target.name + ' cannot have letters or symbols that are not commas or decimals';
+      } else {
+        showError('#FFFFFF;');
+        errorDiv.textContent = '';
       }
     }
   }
 }
 
-// console.log(event.target.closest('.data-row-input'));
-// console.log(event.target.closest('.data-row-input').setAttribute('className', 'error'));
-
-function showError() {
+function showError(color = '#FFA98F;') {
   let width = event.target.getAttribute('style');
-  event.target.setAttribute('style', width + 'background-color: #FFA98F;');
+  event.target.setAttribute('style', width + 'background-color:' + color);
 }
