@@ -16,6 +16,15 @@ export default class App extends React.Component {
         'Price-Bought': 165.72,
         'Price-Sold': 166.01,
         'Profit-Loss': 5.80
+      },
+      {
+        'ID': 2,
+        'Date': '01-30-2020',
+        'Stock': 'MSFT',
+        'Quantity': 20,
+        'Price-Bought': 165.72,
+        'Price-Sold': 166.01,
+        'Profit-Loss': 105.80
       }],
       toDelete: []
     };
