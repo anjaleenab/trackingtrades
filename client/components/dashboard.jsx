@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './header';
 import { Redirect } from 'react-router-dom';
+import SimpleLineChart from './simpleLineChart';
 
 export default function Dashboard(props) {
   const [tradeLogMode, setTradeLogMode] = useState(false);
@@ -18,7 +19,9 @@ export default function Dashboard(props) {
         </div>
       </div>
       <div className="bottomDash">
-        <div className="stat4"></div>
+        <div className="stat4">
+          <SimpleLineChart trades={props.trades} />
+        </div>
         <div className="stat5"></div>
       </div>
     </main>;
