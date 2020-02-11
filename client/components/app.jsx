@@ -76,7 +76,9 @@ export default class App extends React.Component {
   }
   checkForErrors() {
     const errors = document.querySelectorAll('.error');
-    if (errors.length === 0) {
+    const errorDiv = document.getElementById('errorMessage');
+
+    if (errors.length === 0 && !errorDiv.textContent) {
       return true;
     }
   }
