@@ -1,9 +1,7 @@
 
 export default function Validate(props, name) {
   let errorDiv = document.getElementById('errorMessage');
-  errorDiv.textContent = 'All inputs should have a value';
   if (!event.target.value) {
-    event.target.closest('.data-row-input').setAttribute('className', 'error');
     showError();
   } else if (event.target.value) {
     if (name === 'Date') {
@@ -12,8 +10,7 @@ export default function Validate(props, name) {
       let word = event.target.value[event.target.value.length - 1];
       const date = new Date();
       if (letters.test(word) || symbols.test(word)) {
-        event.target.value = event.target.value.substring(0, event.target.value.length - 1);
-        errorDiv.textContent = event.target.name + ' cannot have letters';
+        errorDiv.textContent = event.target.name + ' cannot have letters or symbols';
         showError();
       } else if (event.target.value.length === 10) {
         const values = event.target.value.split('');
@@ -39,7 +36,6 @@ export default function Validate(props, name) {
           showError();
         } else {
           showError('#FFFFFF;');
-          errorDiv.textContent = '';
         }
       } else if (event.target.value.length !== 10) {
         errorDiv.textContent = 'Date must be in date format Ex: 01-01-' + date.getFullYear() +
@@ -51,11 +47,10 @@ export default function Validate(props, name) {
       let symbols = /[\\/!@#$%^&*(){}`"'~|><;:/ = +]+/;
       let word = event.target.value[event.target.value.length - 1];
       if (letters.test(word) || symbols.test(word)) {
-        event.target.value = event.target.value.substring(0, event.target.value.length - 1);
         errorDiv.textContent = event.target.name + ' cannot have letters or symbols that are not commas or decimals';
+        showError();
       } else {
         showError('#FFFFFF;');
-        errorDiv.textContent = '';
       }
     }
   }
