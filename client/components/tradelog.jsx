@@ -62,6 +62,7 @@ export default function TradeLog(props) {
               }}>Confirm Deletion</button> : null}
               <button onClick={() => {
                 if (props.checkErrors()) {
+                  setEnterTrade(false);
                   setEditTrade(false);
                 }
               }}>Save Edits
