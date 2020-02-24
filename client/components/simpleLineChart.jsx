@@ -64,7 +64,7 @@ const GetLineChartData = props => {
 };
 
 export default function SimpleLineChart(props) {
-  data = GetLineChartData(props);
+  // data = GetLineChartData(props);
   return (
     <LineChart
       width={325}

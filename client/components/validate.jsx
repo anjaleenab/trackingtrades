@@ -59,4 +59,7 @@ export default function Validate(props, name) {
 function showError(color = '#FFA98F;') {
   let width = event.target.getAttribute('style');
   event.target.setAttribute('style', width + 'background-color:' + color);
+  if (color === '#FFFFFF;') {
+    document.getElementById('errorMessage').textContent = '';
+  }
 }
