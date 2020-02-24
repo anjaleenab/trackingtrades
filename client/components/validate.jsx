@@ -6,7 +6,7 @@ export default function Validate(props, name) {
   } else if (event.target.value) {
     if (name === 'Date') {
       let letters = /[A-z]/;
-      let symbols = /[\\/!@#$%^&*(){}`"'~|><;:/ = +]+/;
+      let symbols = /[\\/!@#$%^&*(){}`"'~|><;:/ = +]/;
       let word = event.target.value[event.target.value.length - 1];
       const date = new Date();
       if (letters.test(word) || symbols.test(word)) {
@@ -44,7 +44,7 @@ export default function Validate(props, name) {
       }
     } else if (name === 'Quantity' || name === 'Price-Bought' || name === 'Price-Sold' || name === 'Profit-Loss') {
       let letters = /[A-z]/;
-      let symbols = /[\\/!@#$%^&*(){}`"'~|><;:/ = +]+/;
+      let symbols = /[\\/!@#$%^&*(){}`"'~|><;:/ = +]/;
       let word = event.target.value[event.target.value.length - 1];
       if (letters.test(word) || symbols.test(word)) {
         errorDiv.textContent = event.target.name + ' cannot have letters or symbols that are not commas or decimals';
