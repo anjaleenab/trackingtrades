@@ -3,25 +3,30 @@ import {
   PieChart, Pie, Sector, Cell,
 } from 'recharts';
 
+function getData(props) {
+  let stocks = [];
 
-const data = function getData(props) {
-  let stocks =[];
-
-  for(let currentTrade =0; currentTrade <props.trades.length;currentTrade++) {
-    if(stocks.some(stock => stock.name === props.trades[currentTrade]["Stock"]) {
-      for(let currentStock=0;currentStock<trade.length;currentStock++) {
-        if (stocks[currentStock[name]] === props.trades[currentTrade]["Stock"])) {
-          trade.numberOfTrades++;
+  for (let currentTrade = 0; currentTrade < props.trades.length; currentTrade++) {
+    if (stocks.some(stock => stock.name === props.trades[currentTrade]['Stock'])) {
+      for (let currentStock = 0; currentStock < stocks.length; currentStock++) {
+        if (stocks[currentStock]['name'] === props.trades[currentTrade]['Stock']) {
+          stocks[currentStock].numberOfTrades++;
         }
       }
-      else {
-        let trade
-      }
+    } else {
+      let currentStock = {
+        'name': props.trades[currentTrade]['Stock'],
+        'numberOfTrades': 1
+      };
+      stocks.push(currentStock);
     }
   }
+  return stocks;
 }
 
-
-export default function PieChart(props) {
-
+export default function SimplePieChart(props) {
+  getData(props);
+  return (
+    null
+  );
 }
