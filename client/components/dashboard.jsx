@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './header';
 import { Redirect } from 'react-router-dom';
 import SimpleLineChart from './simpleLineChart';
+import PieChart from './pieChart';
 
 export default function Dashboard(props) {
   const [tradeLogMode, setTradeLogMode] = useState(false);
@@ -22,7 +23,9 @@ export default function Dashboard(props) {
         <div className="stat4">
           <SimpleLineChart trades={props.trades} />
         </div>
-        <div className="stat5"></div>
+        <div className="stat5">
+          <PieChart trades={props.trades} />
+        </div>
       </div>
     </main>;
   }
