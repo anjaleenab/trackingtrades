@@ -20,12 +20,13 @@ export default class App extends React.Component {
       {
         'ID': 2,
         'Date': '01-30-2020',
-        'Stock': 'MSFT',
+        'Stock': 'NUGT',
         'Quantity': 20,
         'Price-Bought': 165.72,
         'Price-Sold': 166.01,
         'Profit-Loss': 105.80
-      }],
+      }
+      ],
       toDelete: []
     };
     this.updateState = this.updateState.bind(this);

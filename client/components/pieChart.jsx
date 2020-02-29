@@ -24,6 +24,9 @@ function getData(props) {
   return stocks;
 }
 
+// each stock in the piechart will have it's own color on the piechart
+// eventually api will be used and color will be assigned by what industry stock is in
+
 let colors = ['#B0171F', '#DC143C', '#FFB6C1', '#FFAEB9', '#EEA2AD',
   '#CD8C95', '#8B5F65', '#FFC0CB', '#FFB5C5', '#EEA9B8', '#CD919E', '#8B636C',
   '#DB7093', '#FF82AB', '#EE799F', '#CD6889', '#8B475D', '#FFF0F5', '#EEE0E5',
@@ -108,12 +111,39 @@ let colors = ['#B0171F', '#DC143C', '#FFB6C1', '#FFAEB9', '#EEA2AD',
   '#121212', '#0F0F0F', '#0D0D0D', '#0A0A0A', '#080808', '#050505', '#030303'
 ];
 
-// each stock in the piechart will have it's own color on the piechart
-// eventually api will be used and color will be assigned by what industry stock is in
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({
+  cx, cy, midAngle, innerRadius, outerRadius, percent, index
+}) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+  return (
+    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
 
 export default function SimplePieChart(props) {
-  getData(props);
+  const data = getData(props);
   return (
-    null
+    <PieChart width={200} height={200}>
+      <Pie
+        data={data}
+        cx={100}
+        cy={100}
+        labelLine={false}
+        label={renderCustomizedLabel}
+        outerRadius={80}
+        fill="#8884d8"
+        dataKey="numberOfTrades"
+      >
+        {
+          data.map((entry, index) => <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />)
+        }
+      </Pie>
+    </PieChart>
   );
 }
