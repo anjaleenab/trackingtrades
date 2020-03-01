@@ -57,6 +57,7 @@ export default function TradeLog(props) {
               {!deleteTrade ? <button onClick={() => { setDeleteTrade(true); }}>Delete A Trade</button> : null}
               {deleteTrade ? <button onClick={() => {
                 props.deleteTrades();
+                setEnterTrade(false);
                 setEditTrade(false);
                 setDeleteTrade(false);
               }}>Confirm Deletion</button> : null}
