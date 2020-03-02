@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
-  PieChart, Pie, Sector, Cell
+  PieChart, Pie, Sector, Cell, Label
 } from 'recharts';
 
 function getData(props) {
@@ -112,13 +112,12 @@ let colors = ['#B0171F', '#DC143C', '#FFB6C1', '#FFAEB9', '#EEA2AD',
 ];
 
 const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({
+const showPercentLabel = ({
   cx, cy, midAngle, innerRadius, outerRadius, percent, index
 }) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
   return (
     <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
       {`${(percent * 100).toFixed(0)}%`}
@@ -126,16 +125,25 @@ const renderCustomizedLabel = ({
   );
 };
 
+function getStockLabel(data) {
+  let stockName = data.name;
+  return stockName;
+}
+
+// make one of the label functions
+// return text on mouseover
+
 export default function SimplePieChart(props) {
   const data = getData(props);
   return (
     <PieChart width={200} height={200}>
       <Pie
         data={data}
+        nameKey={data.name}
         cx={100}
         cy={100}
         labelLine={false}
-        label={renderCustomizedLabel}
+        label={showPercentLabel}
         outerRadius={80}
         fill="#8884d8"
         dataKey="numberOfTrades"

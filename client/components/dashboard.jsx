@@ -16,7 +16,10 @@ export default function Dashboard(props) {
         <div className="stat2"></div>
         <div className="stat3">
           <div>Number of Trades Logged: {props.trades.length}</div>
-          <button onClick={() => { setTradeLogMode(true); }}>Enter a trade</button>
+          <div className="addTrade">
+            <button className="enterTrade-btn" onClick={() => { setTradeLogMode(true); }}>
+            Enter a trade</button>
+          </div>
         </div>
       </div>
       <div className="bottomDash">
