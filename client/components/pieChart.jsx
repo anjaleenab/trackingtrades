@@ -112,23 +112,20 @@ let colors = ['#B0171F', '#DC143C', '#FFB6C1', '#FFAEB9', '#EEA2AD',
 ];
 
 const RADIAN = Math.PI / 180;
-const showPercentLabel = ({
-  cx, cy, midAngle, innerRadius, outerRadius, percent, index
+const getLabel = ({
+  cx, cy, midAngle, innerRadius, outerRadius, percent, index, name
 }) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
   return (
-    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-      {`${(percent * 100).toFixed(0)}%`}
+    <text x={x} y={y} dy="-1em" fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+      <tspan x={x} y={y}>{`${(percent * 100).toFixed(0)}%`}</tspan>
+      <tspan x={x} y={y} dx=".05em" dy=".4em">{`${name}`}</tspan>
     </text>
+
   );
 };
-
-function getStockLabel(data) {
-  let stockName = data.name;
-  return stockName;
-}
 
 // make one of the label functions
 // return text on mouseover
@@ -143,7 +140,7 @@ export default function SimplePieChart(props) {
         cx={100}
         cy={100}
         labelLine={false}
-        label={showPercentLabel}
+        label={getLabel}
         outerRadius={80}
         fill="#8884d8"
         dataKey="numberOfTrades"
