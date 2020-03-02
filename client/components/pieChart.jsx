@@ -121,7 +121,7 @@ const getLabel = ({
   return (
     <text x={x} y={y} dy="-1em" fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
       <tspan x={x} y={y}>{`${(percent * 100).toFixed(0)}%`}</tspan>
-      <tspan x={x} y={y} dx=".25em" dy=".4em">{`${name}`}</tspan>
+      <tspan x={x} y={y} dx=".05em" dy=".4em">{`${name}`}</tspan>
     </text>
 
   );
