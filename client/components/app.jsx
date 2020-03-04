@@ -21,7 +21,7 @@ export default class App extends React.Component {
       },
       {
         'ID': 2,
-        'Date': '01-30-2020',
+        'Date': '01-17-2020',
         'Stock': 'NUGT',
         'Quantity': 20,
         'Price-Bought': 165,
@@ -30,7 +30,7 @@ export default class App extends React.Component {
       },
       {
         'ID': 3,
-        'Date': '01-31-2020',
+        'Date': '02-06-2020',
         'Stock': 'APT',
         'Quantity': 20,
         'Price-Bought': 165,
@@ -39,7 +39,7 @@ export default class App extends React.Component {
       },
       {
         'ID': 4,
-        'Date': '02-06-2020',
+        'Date': '01-22-2020',
         'Stock': 'JNUG',
         'Quantity': 20,
         'Price-Bought': 165,
@@ -54,6 +54,7 @@ export default class App extends React.Component {
     this.setTradesForDelete = this.setTradesForDelete.bind(this);
     this.addTrade = this.addTrade.bind(this);
     this.checkForErrors = this.checkForErrors.bind(this);
+    this.sortTradesByDate = this.sortTradesByDate.bind(this);
   }
   updateState(tradeID, valName, newVal) {
     let tradesCopy = Object.assign(this.state.trades);
@@ -110,6 +111,17 @@ export default class App extends React.Component {
     if (errors.length === 0) {
       return true;
     }
+  }
+  sortTradesByDate() {
+    const sortedTrades = this.props.trades.sort(function (a, b) {
+      return new Date(a['Date']) - new Date(b['Date']);
+    });
+    this.setState({
+      trades: sortedTrades
+    });
+  }
+  componentDidMount() {
+    this.sortTradesByDate();
   }
   render() {
     return (
