@@ -15,36 +15,36 @@ export default class App extends React.Component {
         'Date': '01-22-2020',
         'Stock': 'MSFT',
         'Quantity': 20,
-        'Price-Bought': 165.72,
-        'Price-Sold': 166.01,
-        'Profit-Loss': 5.80
+        'Price-Bought': 165,
+        'Price-Sold': 166,
+        'Profit-Loss': 20
       },
       {
         'ID': 2,
         'Date': '01-30-2020',
         'Stock': 'NUGT',
         'Quantity': 20,
-        'Price-Bought': 165.72,
-        'Price-Sold': 166.01,
-        'Profit-Loss': 105.80
+        'Price-Bought': 165,
+        'Price-Sold': 166,
+        'Profit-Loss': 20
       },
       {
         'ID': 3,
         'Date': '01-31-2020',
         'Stock': 'APT',
         'Quantity': 20,
-        'Price-Bought': 165.72,
-        'Price-Sold': 166.01,
-        'Profit-Loss': 5.80
+        'Price-Bought': 165,
+        'Price-Sold': 166,
+        'Profit-Loss': 20
       },
       {
         'ID': 4,
         'Date': '02-06-2020',
         'Stock': 'JNUG',
         'Quantity': 20,
-        'Price-Bought': 165.72,
-        'Price-Sold': 166.01,
-        'Profit-Loss': 105.80
+        'Price-Bought': 165,
+        'Price-Sold': 166,
+        'Profit-Loss': 20
       }
       ],
       toDelete: []

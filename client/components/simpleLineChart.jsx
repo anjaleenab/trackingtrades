@@ -3,34 +3,7 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend
 } from 'recharts';
 
-let data = [
-  {
-    time: 'Page A', uv: 4000, pv: 2400, amt: 2400
-  },
-  {
-    time: 'Page B', uv: 3000, pv: 1398, amt: 2210
-  },
-  {
-    time: 'Page C', uv: 2000, pv: 9800, amt: 2290
-  },
-  {
-    time: 'Page D', uv: 2780, pv: 3908, amt: 2000
-  },
-  {
-    time: 'Page E', uv: 1890, pv: 4800, amt: 2181
-  },
-  {
-    time: 'Page F', uv: 2390, pv: 3800, amt: 2500
-  },
-  {
-    time: 'Page G', uv: 3490, pv: 4300, amt: 2100
-  }
-];
-
-// {time: Date,  amount: totalProfitAndLosses}
-
 const GetDaysInbetween = (props, trade = 0) => {
-  debugger;
   let day1;
   let day2;
   if (trade || trade === 0) {
@@ -45,8 +18,6 @@ const GetDaysInbetween = (props, trade = 0) => {
 };
 
 const GetLineChartData = props => {
-  debugger;
-  console.log(props);
   let tradeData = [];
   let tradeObj = {};
   let totalProfitAndLosses = 0;
@@ -65,34 +36,19 @@ const GetLineChartData = props => {
     tradeData.push(tradeObj);
     tradeObj = {};
   }
-  console.log(totalProfitAndLosses);
-  console.log(tradeData);
-  return tradeObj;
+  return tradeData;
 };
 
 export default function SimpleLineChart(props) {
-  data = GetLineChartData(props);
-  // data = [{
-  //   'Date': '01-22-2020',
-  //   'DaysBetween': 0,
-  //   'TotalProfitAndLoss': 0
-  // },
-  // {
-  //   'Date': '01-23-2020',
-  //   'DaysBetween': 1,
-  //   'TotalProfitAndLoss': 300
-  // },
-  // {
-  //   'Date': '01-28-2020',
-  //   'DaysBetween': 5,
-  //   'TotalProfitAndLoss': 1000
-  // },
-  // {
-  //   'Date': '02-15-2020',
-  //   'DaysBetween': 1000,
-  //   'TotalProfitAndLoss': 11500
-  // }
-  // ];
+  let data = GetLineChartData(props);
+  let xAxisObj = { value: 'Date',
+    position: 'insideBottom',
+    offset: 0
+  };
+  let yAxisObj = { value: 'Profit And Loss',
+    angle: -90,
+    position: 'insideLeft'
+  };
   return (
     <LineChart
       width={325}
@@ -103,29 +59,12 @@ export default function SimpleLineChart(props) {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="Date" />
-      <YAxis />
+      <XAxis dataKey="Date" label={xAxisObj} />
+      <YAxis label={yAxisObj} />
       <Tooltip />
       <Legend />
       <Line type="monotone" dataKey="TotalProfitAndLoss" stroke="#4e9525" activeDot={{ r: 8 }} />
-      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+
     </LineChart>
   );
 }
-
-// <LineChart
-// width = { 325}
-// height = { 210}
-// data = { data }
-// margin = {{
-//   top: 10, right: 10, left: 0, bottom: 0
-// }}
-//     >
-//   <CartesianGrid strokeDasharray="3 3" />
-//   <XAxis dataKey="time" />
-//   <YAxis />
-//   <Tooltip />
-//   <Legend />
-//   <Line type="monotone" dataKey="pv" stroke="#4e9525" activeDot={{ r: 8 }} />
-//   <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-//     </LineChart >
