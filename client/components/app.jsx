@@ -4,8 +4,6 @@ import LoginPage from './login';
 import Dashboard from './dashboard';
 import TradeLog from './tradelog';
 
-// will need to sort trades by the date
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -47,7 +45,9 @@ export default class App extends React.Component {
         'Profit-Loss': 20
       }
       ],
-      toDelete: []
+      toDelete: [],
+      holidays: null,
+      holidaysUpdated: null
     };
     this.updateState = this.updateState.bind(this);
     this.deleteTrades = this.deleteTrades.bind(this);
@@ -55,6 +55,7 @@ export default class App extends React.Component {
     this.addTrade = this.addTrade.bind(this);
     this.checkForErrors = this.checkForErrors.bind(this);
     this.sortTradesByDate = this.sortTradesByDate.bind(this);
+    this.getHolidays = this.getHolidays.bind(this);
   }
   updateState(tradeID, valName, newVal) {
     let tradesCopy = Object.assign(this.state.trades);
@@ -124,8 +125,25 @@ export default class App extends React.Component {
       trades: sortedTrades
     });
   }
+  getHolidays() {
+    let today = new Date();
+    let year = today.getFullYear();
+    let dayUpdated = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+    let key = 'f0ee9afce3b2aa544ad7a42d65148f41b22421fa';
+    if (!this.state.holidays || this.state.holidaysUpdated !== dayUpdated) {
+      fetch(`https://calendarific.com/api/v2/holidays?api_key=${key}&year=${year}&country='US'`)
+        .then(response => response.json())
+        .then(data => {
+          this.setState({
+            holidays: data,
+            holidaysUpdated: dayUpdated
+          });
+        });
+    }
+  }
   componentDidMount() {
     this.sortTradesByDate();
+    this.getHolidays();
   }
   render() {
     return (
