@@ -187,3 +187,7 @@ label {
 .recharts-wrapper {
 margin: auto;
 }
+
+/* .verticalLabel-pieChart {
+  transform: rotate(-90, 5, 81.29629515501562);
+} */

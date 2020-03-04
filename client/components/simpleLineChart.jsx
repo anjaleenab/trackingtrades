@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label
 } from 'recharts';
 
 const GetDaysInbetween = (props, trade = 0) => {
@@ -46,12 +46,12 @@ export default function SimpleLineChart(props) {
     offset: 0
   };
   let yAxisObj = { value: 'Profit And Loss',
-    angle: -90,
+    angle: 90,
     position: 'insideLeft'
   };
   return (
     <LineChart
-      width={325}
+      width={375}
       height={210}
       data={data}
       margin={{
@@ -59,8 +59,12 @@ export default function SimpleLineChart(props) {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="Date" label={xAxisObj} />
-      <YAxis label={yAxisObj} />
+      <XAxis dataKey="Date">
+        <Label {...xAxisObj} />
+      </XAxis>
+      <YAxis>
+        <Label {...yAxisObj} />
+      </YAxis>
       <Tooltip />
       <Legend />
       <Line type="monotone" dataKey="TotalProfitAndLoss" stroke="#4e9525" activeDot={{ r: 8 }} />
