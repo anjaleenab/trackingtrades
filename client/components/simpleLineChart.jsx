@@ -30,7 +30,6 @@ let data = [
 // {time: Date,  amount: totalProfitAndLosses}
 
 const GetDaysInbetween = (props, trade = 0) => {
-  debugger;
   let day1;
   let day2;
   if (trade || trade === 0) {
@@ -45,8 +44,6 @@ const GetDaysInbetween = (props, trade = 0) => {
 };
 
 const GetLineChartData = props => {
-  debugger;
-  console.log(props);
   let tradeData = [];
   let tradeObj = {};
   let totalProfitAndLosses = 0;
@@ -65,34 +62,11 @@ const GetLineChartData = props => {
     tradeData.push(tradeObj);
     tradeObj = {};
   }
-  console.log(totalProfitAndLosses);
-  console.log(tradeData);
-  return tradeObj;
+  return tradeData;
 };
 
 export default function SimpleLineChart(props) {
   data = GetLineChartData(props);
-  // data = [{
-  //   'Date': '01-22-2020',
-  //   'DaysBetween': 0,
-  //   'TotalProfitAndLoss': 0
-  // },
-  // {
-  //   'Date': '01-23-2020',
-  //   'DaysBetween': 1,
-  //   'TotalProfitAndLoss': 300
-  // },
-  // {
-  //   'Date': '01-28-2020',
-  //   'DaysBetween': 5,
-  //   'TotalProfitAndLoss': 1000
-  // },
-  // {
-  //   'Date': '02-15-2020',
-  //   'DaysBetween': 1000,
-  //   'TotalProfitAndLoss': 11500
-  // }
-  // ];
   return (
     <LineChart
       width={325}
@@ -108,24 +82,7 @@ export default function SimpleLineChart(props) {
       <Tooltip />
       <Legend />
       <Line type="monotone" dataKey="TotalProfitAndLoss" stroke="#4e9525" activeDot={{ r: 8 }} />
-      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+
     </LineChart>
   );
 }
-
-// <LineChart
-// width = { 325}
-// height = { 210}
-// data = { data }
-// margin = {{
-//   top: 10, right: 10, left: 0, bottom: 0
-// }}
-//     >
-//   <CartesianGrid strokeDasharray="3 3" />
-//   <XAxis dataKey="time" />
-//   <YAxis />
-//   <Tooltip />
-//   <Legend />
-//   <Line type="monotone" dataKey="pv" stroke="#4e9525" activeDot={{ r: 8 }} />
-//   <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-//     </LineChart >
