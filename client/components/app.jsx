@@ -4,6 +4,8 @@ import LoginPage from './login';
 import Dashboard from './dashboard';
 import TradeLog from './tradelog';
 
+// will need to sort trades by the date
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +30,7 @@ export default class App extends React.Component {
       },
       {
         'ID': 3,
-        'Date': '01-22-2020',
+        'Date': '01-31-2020',
         'Stock': 'APT',
         'Quantity': 20,
         'Price-Bought': 165.72,
@@ -37,7 +39,7 @@ export default class App extends React.Component {
       },
       {
         'ID': 4,
-        'Date': '01-30-2020',
+        'Date': '02-06-2020',
         'Stock': 'JNUG',
         'Quantity': 20,
         'Price-Bought': 165.72,
