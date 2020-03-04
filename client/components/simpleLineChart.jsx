@@ -35,11 +35,11 @@ const GetDaysInbetween = (props, trade = 0) => {
   let day2;
   if (trade || trade === 0) {
     day1 = props.trades[trade]['Date'];
-    day2 = props.trades[++trade]['Date'];
+    day2 = props.trades[--trade]['Date'];
   }
   let firstDate = new Date(day1);
   let secondDate = new Date(day2);
-  const timeInbetween = secondDate.getTime() - firstDate.getTime();
+  const timeInbetween = firstDate.getTime() - secondDate.getTime();
   const daysInbetween = timeInbetween / (1000 * 3600 * 24);
   return daysInbetween;
 };
@@ -51,10 +51,17 @@ const GetLineChartData = props => {
   let tradeObj = {};
   let totalProfitAndLosses = 0;
   for (let trade = 0; trade < props.trades.length; trade++) {
-    tradeObj['Date'] = new Date(props.trades[trade]['Date']);
-    tradeObj['DaysBetween'] = GetDaysInbetween(props, trade);
-    totalProfitAndLosses += props.trades[trade]['Profit-Loss'];
-    tradeObj['TotalProfitAndLoss'] = totalProfitAndLosses;
+    if (trade === 0) {
+      tradeObj['Date'] = props.trades[trade]['Date'];
+      tradeObj['DaysBetween'] = 0;
+      tradeObj['TotalProfitAndLoss'] = 0;
+    } else {
+      tradeObj['Date'] = props.trades[trade]['Date'];
+      tradeObj['DaysBetween'] = GetDaysInbetween(props, trade);
+      totalProfitAndLosses += props.trades[trade]['Profit-Loss'];
+      tradeObj['TotalProfitAndLoss'] = totalProfitAndLosses;
+    }
+
     tradeData.push(tradeObj);
     tradeObj = {};
   }
@@ -64,7 +71,28 @@ const GetLineChartData = props => {
 };
 
 export default function SimpleLineChart(props) {
-  // data = GetLineChartData(props);
+  data = GetLineChartData(props);
+  // data = [{
+  //   'Date': '01-22-2020',
+  //   'DaysBetween': 0,
+  //   'TotalProfitAndLoss': 0
+  // },
+  // {
+  //   'Date': '01-23-2020',
+  //   'DaysBetween': 1,
+  //   'TotalProfitAndLoss': 300
+  // },
+  // {
+  //   'Date': '01-28-2020',
+  //   'DaysBetween': 5,
+  //   'TotalProfitAndLoss': 1000
+  // },
+  // {
+  //   'Date': '02-15-2020',
+  //   'DaysBetween': 1000,
+  //   'TotalProfitAndLoss': 11500
+  // }
+  // ];
   return (
     <LineChart
       width={325}
@@ -75,12 +103,29 @@ export default function SimpleLineChart(props) {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="time" />
+      <XAxis dataKey="Date" />
       <YAxis />
       <Tooltip />
       <Legend />
-      <Line type="monotone" dataKey="pv" stroke="#4e9525" activeDot={{ r: 8 }} />
+      <Line type="monotone" dataKey="TotalProfitAndLoss" stroke="#4e9525" activeDot={{ r: 8 }} />
       <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
     </LineChart>
   );
 }
+
+// <LineChart
+// width = { 325}
+// height = { 210}
+// data = { data }
+// margin = {{
+//   top: 10, right: 10, left: 0, bottom: 0
+// }}
+//     >
+//   <CartesianGrid strokeDasharray="3 3" />
+//   <XAxis dataKey="time" />
+//   <YAxis />
+//   <Tooltip />
+//   <Legend />
+//   <Line type="monotone" dataKey="pv" stroke="#4e9525" activeDot={{ r: 8 }} />
+//   <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+//     </LineChart >
