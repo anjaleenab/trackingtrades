@@ -113,9 +113,13 @@ export default class App extends React.Component {
     }
   }
   sortTradesByDate() {
-    const sortedTrades = this.props.trades.sort(function (a, b) {
+    const sortedTrades = this.state.trades.sort(function (a, b) {
       return new Date(a['Date']) - new Date(b['Date']);
     });
+    sortedTrades.forEach(function (item, index) {
+      item['ID'] = index++;
+    });
+
     this.setState({
       trades: sortedTrades
     });
