@@ -131,7 +131,7 @@ export default class App extends React.Component {
     let dayUpdated = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
     let key = 'f0ee9afce3b2aa544ad7a42d65148f41b22421fa';
     if (!this.state.holidays || this.state.holidaysUpdated !== dayUpdated) {
-      fetch(`https://calendarific.com/api/v2/holidays?api_key=${key}&year=${year}&country='US'`)
+      fetch(`https://calendarific.com/api/v2/holidays?api_key=${key}&year=${year}&country='US'&type=national`)
         .then(response => response.json())
         .then(data => {
           this.setState({
