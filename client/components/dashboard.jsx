@@ -3,7 +3,7 @@ import Header from './header';
 import { Redirect } from 'react-router-dom';
 import SimpleLineChart from './simpleLineChart';
 import PieChart from './pieChart';
-import dayTradesStat from './dayTradesStat';
+import DayTradesStat from './dayTradesStat';
 
 export default function Dashboard(props) {
   const [tradeLogMode, setTradeLogMode] = useState(false);
@@ -14,7 +14,7 @@ export default function Dashboard(props) {
     component = <main className="mainDashboard">
       <div className="topDash">
         <div className="stat1">
-          <dayTradesStat trades={props.trades} holidays={props.holidays}/>
+          <DayTradesStat trades={props.trades} holidays={props.holidays}/>
         </div>
         <div className="stat2"></div>
         <div className="stat3">
