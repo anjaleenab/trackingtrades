@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 export default function LoginPage(props) {
   const [loggedIn, setloggedIn] = useState(false);
+  const [notSignedUp, setSignedUp] = useState(false);
   if (!loggedIn) {
     return (
       <React.Fragment>
@@ -22,16 +23,27 @@ export default function LoginPage(props) {
                 <input></input>
               </div>
             </div>
-            <button
-              className="login-btn"
-              onClick={() => {
-                setloggedIn(!loggedIn);
-              }}
-            >Log In</button>
+            <div className="landing-buttons">
+              <button
+                className="login-btn"
+                onClick={() => {
+                  setloggedIn(!loggedIn);
+                }}
+              >Log In</button>
+              <button
+                className="sign-in-btn"
+                onClick={() => {
+                  setloggedIn(!notSignedUp);
+                }}
+              >Sign Up</button>
+            </div>
           </div>
         </div>
       </React.Fragment>
     );
+    // } else if (notSignedUp) {
+
+  // }
   } else {
     return (
       <React.Fragment>

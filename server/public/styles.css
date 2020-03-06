@@ -80,7 +80,15 @@ margin-bottom: 2em;
 
 .login-btn {
   margin-top: 2rem;
+  margin-left: 5.1em;
   width: 3em;
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 3em;
+  background-color: #C4C4C4;
+}
+
+.sign-in-btn {
+  margin-left: 5.1em;
   font-family: 'Reenie Beanie', cursive;
   font-size: 3em;
   background-color: #C4C4C4;
