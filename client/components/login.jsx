@@ -10,9 +10,10 @@ export default function LoginPage(props) {
       <React.Fragment>
         <Header status={loggedIn}/>
         <div className="login">
-          <div className="login-image">
-          </div>
-          <div className="loginNecessities">
+          {!signUp ? <div className="login-image">
+          </div> : null
+          }
+          <div className={!signUp ? 'loginNecessities' : 'signUp'}>
             <div className="login-section">
               <div className="login-input1">
                 <label>Username:</label>
