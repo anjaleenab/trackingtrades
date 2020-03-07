@@ -135,8 +135,16 @@ label {
   height: 225px;
 }
 
-.stat3, .stat5 {
+.stat3 {
   margin-right: 1em;
+}
+
+.stat5 {
+  margin-right: 3em;
+}
+
+.stat4 {
+  margin-left: .25em;
 }
 
 .stat4, .stat5 {
