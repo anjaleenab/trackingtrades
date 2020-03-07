@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 // function returnHolidayObjects(propHolidays) {
 //   let holidayObjectArray = [];
@@ -41,12 +41,13 @@ import React from 'react';
 
 // NEED to calculate date + 5 days and format the value to match
 // the API's date value of "YEAR-MONTH-DAY"
+
 export default function DayTradesStat(props) {
-  console.log(props);
-  let propHolidays = props.holidays['response']['holidays'];
-  console.log(propHolidays);
-  let holidayObjs = returnHolidayObjects(propHolidays);
-  console.log(holidayObjs);
+//   console.log(props);
+//   let propHolidays = props.holidays['response']['holidays'];
+//   console.log(propHolidays);
+//   let holidayObjs = returnHolidayObjects(propHolidays);
+//   console.log(holidayObjs);
 
   // let newYears = propHolidays['holidays']['date']['iso'];
   // console.log(newYears);
@@ -54,6 +55,7 @@ export default function DayTradesStat(props) {
   // let markedClosedDates=
   // ACCOUNT for Christmas (it may be observed the next week day or if it is on
   // a saturday it will be observed Friday, market will be closed.)
+
   return (
     null
   );
