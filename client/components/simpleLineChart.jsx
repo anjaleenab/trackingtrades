@@ -52,7 +52,7 @@ export default function SimpleLineChart(props) {
   return (
     <LineChart
       width={375}
-      height={210}
+      height={200}
       data={data}
       margin={{
         top: 10, right: 10, left: 0, bottom: 0
