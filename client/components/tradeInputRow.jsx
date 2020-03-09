@@ -15,7 +15,9 @@ const useInputVal = (props, initialValue) => {
 };
 
 export default function TradeInputRow(props) {
+  console.log(props);
   const dateInput = useInputVal(props, props.date);
+  // const dateInput = useInputVal(props, props.date);
   const stockInput = useInputVal(props, props.stock);
   const quantityInput = useInputVal(props, props.quantity);
   const boughtAtInput = useInputVal(props, props.boughtAt);
@@ -27,10 +29,10 @@ export default function TradeInputRow(props) {
         tradesToDelete={props.tradesToDelete} /> : null}
       <input style={props.date === '' ? { width: '10%', backgroundColor: '#FFA98F' } : { width: '10%' } }
         className={props.date === '' ? 'error' : ''}
-        type="text" name="Date" defaultValue={props.date} {...dateInput}></input>
+        type="text" name="Date-Bought" defaultValue={props.date} {...dateInput}></input>
       <input style={props.date === '' ? { width: '10%', backgroundColor: '#FFA98F' } : { width: '10%' }}
         className={props.date === '' ? 'error' : ''}
-        type="text" name="Date" defaultValue={props.date} {...dateInput}></input>
+        type="text" name="Date-Sold" defaultValue={props.date} {...dateInput}></input>
       <input style={props.stock === '' ? { width: '15%', backgroundColor: '#FFA98F' } : { width: '15%' }}
         className={props.stock === '' ? 'error' : ''}
         type="text" name="Stock" defaultValue={props.stock} {...stockInput}></input>
