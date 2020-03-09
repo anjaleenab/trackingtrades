@@ -10,35 +10,9 @@ export default class App extends React.Component {
     this.state = {
       trades: [{
         'ID': 1,
-        'Date': '01-22-2020',
+        'Date-Bought': '01-22-2020',
+        'Date-Sold': '01-22-2020',
         'Stock': 'MSFT',
-        'Quantity': 20,
-        'Price-Bought': 165,
-        'Price-Sold': 166,
-        'Profit-Loss': 20
-      },
-      {
-        'ID': 2,
-        'Date': '01-17-2020',
-        'Stock': 'NUGT',
-        'Quantity': 20,
-        'Price-Bought': 165,
-        'Price-Sold': 166,
-        'Profit-Loss': 20
-      },
-      {
-        'ID': 3,
-        'Date': '02-06-2020',
-        'Stock': 'APT',
-        'Quantity': 20,
-        'Price-Bought': 165,
-        'Price-Sold': 166,
-        'Profit-Loss': 20
-      },
-      {
-        'ID': 4,
-        'Date': '01-22-2020',
-        'Stock': 'JNUG',
         'Quantity': 20,
         'Price-Bought': 165,
         'Price-Sold': 166,
