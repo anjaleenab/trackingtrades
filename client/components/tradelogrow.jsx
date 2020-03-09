@@ -4,7 +4,8 @@ export default function TradeLogRow(props) {
   return (
     props.trades.map(trade => {
       let id = trade['id'];
-      let date = trade['Date'];
+      let dateBought = trade['Date-Bought'];
+      let dateSold = trade['Date-Sold'];
       let stock = trade['Stock'];
       let quantity = trade['Quantity'];
       let boughtAt = trade['Price-Bought'];
@@ -12,7 +13,8 @@ export default function TradeLogRow(props) {
       let pAndL = trade['Profit-Loss'];
       return (
         <tr className="data-row" key={id}>
-          <td>{date}</td>
+          <td>{dateBought}</td>
+          <td>{dateSold}</td>
           <td>{stock}</td>
           <td>{quantity}</td>
           <td>{boughtAt}</td>

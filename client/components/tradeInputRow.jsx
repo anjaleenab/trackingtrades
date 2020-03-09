@@ -15,7 +15,8 @@ const useInputVal = (props, initialValue) => {
 };
 
 export default function TradeInputRow(props) {
-  const dateInput = useInputVal(props, props.date);
+  const dateBoughtInput = useInputVal(props, props.dateBought);
+  const dateSoldInput = useInputVal(props, props.dateSold);
   const stockInput = useInputVal(props, props.stock);
   const quantityInput = useInputVal(props, props.quantity);
   const boughtAtInput = useInputVal(props, props.boughtAt);
@@ -27,20 +28,23 @@ export default function TradeInputRow(props) {
         tradesToDelete={props.tradesToDelete} /> : null}
       <input style={props.date === '' ? { width: '10%', backgroundColor: '#FFA98F' } : { width: '10%' } }
         className={props.date === '' ? 'error' : ''}
-        type="text" name="Date" defaultValue={props.date} {...dateInput}></input>
+        type="text" name="Date-Bought" defaultValue={props.dateBought} {...dateBoughtInput}></input>
+      <input style={props.date === '' ? { width: '10%', backgroundColor: '#FFA98F' } : { width: '10%' }}
+        className={props.date === '' ? 'error' : ''}
+        type="text" name="Date-Sold" defaultValue={props.dateBought} {...dateSoldInput}></input>
       <input style={props.stock === '' ? { width: '15%', backgroundColor: '#FFA98F' } : { width: '15%' }}
         className={props.stock === '' ? 'error' : ''}
         type="text" name="Stock" defaultValue={props.stock} {...stockInput}></input>
       <input style={props.quantity === '' ? { width: '15%', backgroundColor: '#FFA98F' } : { width: '15%' }}
         className={props.quantity === '' ? 'error' : ''}
         type="text" name="Quantity" defaultValue={props.quantity} {...quantityInput}></input>
-      <input style={props.boughtAt === '' ? { width: '18.5%', backgroundColor: '#FFA98F' } : { width: '18.5%' }}
+      <input style={props.boughtAt === '' ? { width: '15%', backgroundColor: '#FFA98F' } : { width: '15%' }}
         className={props.boughtAt === '' ? 'error' : ''}
         type="text" name="Price-Bought" defaultValue={props.boughtAt} {...boughtAtInput}></input>
-      <input style={props.soldAt === '' ? { width: '18.5%', backgroundColor: '#FFA98F' } : { width: '18.5%' }}
+      <input style={props.soldAt === '' ? { width: '15%', backgroundColor: '#FFA98F' } : { width: '15%' }}
         className={props.soldAt === '' ? 'error' : ''}
         type="text" name="Price-Sold" defaultValue={props.soldAt} {...soldAtInput}></input>
-      <input style={props.pAndL === '' ? { width: '18.5%', backgroundColor: '#FFA98F' } : { width: '18.5%' }}
+      <input style={props.pAndL === '' ? { width: '15%', backgroundColor: '#FFA98F' } : { width: '15%' }}
         className={props.pAndL === '' ? 'error' : ''}
         type="text" name="Profit-Loss" defaultValue={props.pAndL} {...pAndLInput}></input>
     </div>

@@ -13,14 +13,16 @@ export default function TradeLog(props) {
       <table className ="trades">
         <thead>
           {deleteTrade ? <tr className="headers-row">
-            <th style={{ textAlign: 'end' }}>Date</th>
+            <th style={{ textAlign: 'left' }}>Date Bought </th>
+            <th style={{ textAlign: 'end' }}>Date Sold </th>
             <th style={{ textAlign: 'end' }}>Stock</th>
             <th style={{ textAlign: 'end' }}>Quantity</th>
             <th>Price Bought</th>
             <th>Price Sold</th>
             <th>Profit/Loss</th>
           </tr> : <tr className="headers-row">
-            <th>Date</th>
+            <th>Date Bought</th>
+            <th>Date Sold</th>
             <th>Stock</th>
             <th>Quantity</th>
             <th>Price Bought</th>
