@@ -7,21 +7,26 @@ import { RadialBarChart, RadialBar, PolarAngleAxis } from 'recharts';
 // make new data function
 const data = [
   {
-    name: 'Percent Of Goal', uv: 25, fill: '#4e9525'
+    name: 'Amount Of Goal', amountReached: 50, goal: 100, fill: '#4e9525'
   }
 ];
 
-const style = {
-  top: 0,
-  left: 350,
-  lineHeight: '2px'
-};
+// loop through data to get the data from the time period of the goal
+// and add up the profit
+// create an object like the one above and return it
+
+// function getGoalData(props) {
+//   for(let trade=0; trade<props.trades<trade++) {
+
+//   }
+// }
 
 function RadialChart() {
+  let range = data[0].goal;
   return (
     <RadialBarChart width={300} height={300} cx={150} cy={120} innerRadius={40} outerRadius={180} barSize={10} data={data}>
-      <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
-      <RadialBar minAngle={15} label={{ position: 'center', fill: '#000000' }} background clockWise dataKey="uv" />
+      <PolarAngleAxis type="number" domain={[0, range]} angleAxisId={0} tick={false} />
+      <RadialBar minAngle={15} label={{ position: 'center', fill: '#000000' }} background clockWise dataKey="amountReached" />
     </RadialBarChart>
   );
 }
