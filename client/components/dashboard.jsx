@@ -18,7 +18,7 @@ export default function Dashboard(props) {
           <DayTradesStat trades={props.trades} holidays={props.holidays}/>
         </div>
         <div className="stat2">
-          <GoalStat trades={props.trades} />
+          <GoalStat trades={props.trades} goal={props.goal} />
         </div>
         <div className="stat3">
           <div>Number of Trades Logged: {props.trades.length}</div>

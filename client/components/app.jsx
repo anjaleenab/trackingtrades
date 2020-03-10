@@ -19,6 +19,7 @@ export default class App extends React.Component {
         'Profit-Loss': 20
       }
       ],
+      userGoalAmount: null,
       toDelete: [],
       holidays: null,
       holidaysUpdated: null
@@ -124,7 +125,7 @@ export default class App extends React.Component {
       <Router>
         <Switch>
           <Route path='/' exact component = {LoginPage} />
-          <Route path='/dashboard' render={ () => <Dashboard trades={this.state.trades} holidays={this.state.holidays}/> } />
+          <Route path='/dashboard' render={ () => <Dashboard trades={this.state.trades} holidays={this.state.holidays}/> } goal={this.userGoalAmount} />
           <Route path='/tradeLog' render={ () => <TradeLog trades={this.state.trades} stateUpdate={this.updateState}
             deleteTrades={this.deleteTrades} setTradesForDelete={this.setTradesForDelete}
             tradesToDelete={this.state.toDelete} addTrade={this.addTrade} checkErrors={this.checkForErrors}/> } />
