@@ -46,8 +46,8 @@ export default function SimpleLineChart(props) {
     offset: 0
   };
   let yAxisObj = { value: 'Profit And Loss',
-    angle: 90,
-    position: 'insideLeft'
+    angle: -90,
+    position: 'insideTopLeft'
   };
   return (
     <LineChart
