@@ -43,12 +43,12 @@ function getGoalData(props) {
 }
 
 function RadialChart({ props }) {
-  let data = getGoalData(props);
-  let range = data[0].goal;
+  const data = getGoalData(props);
+  const range = data[0].goal;
   return (
-    <RadialBarChart width={300} height={300} cx={150} cy={120} innerRadius={40} outerRadius={180} barSize={10} data={data}>
+    <RadialBarChart width={300} height={175} cx={150} cy={80} innerRadius={40} outerRadius={180} barSize={10} data={data}>
       <PolarAngleAxis type="number" domain={[0, range]} angleAxisId={0} tick={false} />
-      <RadialBar minAngle={15} label={{ position: 'center', fill: '#000000' }} background clockWise dataKey="amountReached" />
+      <RadialBar minAngle={15} label={{ id: 'radialLabel', position: 'center', fill: '#000000' }} background clockWise dataKey="amountReached" />
     </RadialBarChart>
   );
 }
@@ -57,19 +57,29 @@ export default function GoalStat(props) {
   const [goalMode, setGoalMode] = useState(false);
   if (goalMode) {
     return (
-      null
+      <div className='newGoal'>
+      Please input the amount that you would like your new goal to be:
+        <div>
+          <input></input>
+        </div>
+        <div>
+          <button className="goalConfirmation-btn"
+            onClick={() => setGoalMode(false)}>Confirm New Goal</button>
+        </div>
+      </div>
     );
   } else {
     return (
       <div className="goalPercentDiv">
+        You have reached 1% of your goal of $400 this week
+
+        <div>
+          <button className="setGoal-btn"
+            onClick={() => setGoalMode(true)}>Set New Goal</button>
+        </div>
         <RadialChart props ={props}/>
       </div>
     );
   }
 
 }
-
-// You have reached 1% of your goal of $400 this week
-//   <div>
-//     <button className="setGoal-btn" onClick={() => setGoalMode(true)}>Set New Goal</button>
-//   </div>

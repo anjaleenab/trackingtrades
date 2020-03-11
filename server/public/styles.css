@@ -162,15 +162,25 @@ label {
   bottom: .5em;
 }
 
-.enterTrade-btn, .setGoal-btn {
+.enterTrade-btn, .setGoal-btn, .goalConfirmation-btn {
   font-size: x-large;
 }
 
 .goalPercentDiv {
   display:flex;
   flex-direction: column;
-  font-size: 2em;
+  font-size: 1.25em;
   text-align:center;
+}
+
+.stat2 {
+  display: flex;
+  justify-content: center;
+}
+
+.newGoal {
+  font-size: 1.25em;
+  text-align: center;
 }
 
  .stat4 {
