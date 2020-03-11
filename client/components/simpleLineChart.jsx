@@ -7,8 +7,8 @@ const GetDaysInbetween = (props, trade = 0) => {
   let day1;
   let day2;
   if (trade || trade === 0) {
-    day1 = props.trades[trade]['Date'];
-    day2 = props.trades[--trade]['Date'];
+    day1 = props.trades[trade]['Date-Sold'];
+    day2 = props.trades[--trade]['Date-Sold'];
   }
   let firstDate = new Date(day1);
   let secondDate = new Date(day2);
@@ -23,11 +23,11 @@ const GetLineChartData = props => {
   let totalProfitAndLosses = 0;
   for (let trade = 0; trade < props.trades.length; trade++) {
     if (trade === 0) {
-      tradeObj['Date'] = props.trades[trade]['Date'];
+      tradeObj['Date'] = props.trades[trade]['Date-Sold'];
       tradeObj['DaysBetween'] = 0;
       tradeObj['TotalProfitAndLoss'] = 0;
     } else {
-      tradeObj['Date'] = props.trades[trade]['Date'];
+      tradeObj['Date-Sold'] = props.trades[trade]['Date'];
       tradeObj['DaysBetween'] = GetDaysInbetween(props, trade);
       totalProfitAndLosses += props.trades[trade]['Profit-Loss'];
       tradeObj['TotalProfitAndLoss'] = totalProfitAndLosses;

@@ -10,16 +10,26 @@ export default class App extends React.Component {
     this.state = {
       trades: [{
         'ID': 1,
-        'Date-Bought': '01-22-2020',
-        'Date-Sold': '01-22-2020',
+        'Date-Bought': '03-01-2020',
+        'Date-Sold': '03-01-2020',
         'Stock': 'MSFT',
+        'Quantity': 20,
+        'Price-Bought': 165,
+        'Price-Sold': 166,
+        'Profit-Loss': 20
+      },
+      {
+        'ID': 2,
+        'Date-Bought': '03-11-2020',
+        'Date-Sold': '03-11-2020',
+        'Stock': 'NUGT',
         'Quantity': 20,
         'Price-Bought': 165,
         'Price-Sold': 166,
         'Profit-Loss': 20
       }
       ],
-      userGoalAmount: null,
+      userGoalAmount: 100,
       toDelete: [],
       holidays: null,
       holidaysUpdated: null
@@ -125,7 +135,7 @@ export default class App extends React.Component {
       <Router>
         <Switch>
           <Route path='/' exact component = {LoginPage} />
-          <Route path='/dashboard' render={ () => <Dashboard trades={this.state.trades} holidays={this.state.holidays}/> } goal={this.userGoalAmount} />
+          <Route path='/dashboard' render={ () => <Dashboard trades={this.state.trades} holidays={this.state.holidays} goal={this.state.userGoalAmount} /> } />
           <Route path='/tradeLog' render={ () => <TradeLog trades={this.state.trades} stateUpdate={this.updateState}
             deleteTrades={this.deleteTrades} setTradesForDelete={this.setTradesForDelete}
             tradesToDelete={this.state.toDelete} addTrade={this.addTrade} checkErrors={this.checkForErrors}/> } />
