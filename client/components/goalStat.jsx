@@ -48,13 +48,15 @@ function RadialChart({ props }) {
   return (
     <RadialBarChart width={300} height={175} cx={150} cy={80} innerRadius={40} outerRadius={180} barSize={10} data={data}>
       <PolarAngleAxis type="number" domain={[0, range]} angleAxisId={0} tick={false} />
-      <RadialBar minAngle={15} label={{ id: 'radialLabel', position: 'center', fill: '#000000' }} background clockWise dataKey="amountReached" />
+      <RadialBar minAngle={15} label={{ value: 'test', position: 'center', fill: '#000000' }} background clockWise dataKey="amountReached" />
     </RadialBarChart>
   );
 }
 
 export default function GoalStat(props) {
   const [goalMode, setGoalMode] = useState(false);
+  const data = getGoalData(props);
+  let declaration = `You have reached ${(data[0]['amountReached'] * 100) / data[0]['goal']}% of your goal of $${data[0]['goal']} this week`;
   if (goalMode) {
     return (
       <div className='newGoal'>
@@ -70,14 +72,13 @@ export default function GoalStat(props) {
     );
   } else {
     return (
-      <div className="goalPercentDiv">
-        You have reached 1% of your goal of $400 this week
-
+      <div id="goalPercent" className="goalPercentDiv">
+        {declaration}
         <div>
           <button className="setGoal-btn"
             onClick={() => setGoalMode(true)}>Set New Goal</button>
         </div>
-        <RadialChart props ={props}/>
+        <RadialChart props ={props} />
       </div>
     );
   }
