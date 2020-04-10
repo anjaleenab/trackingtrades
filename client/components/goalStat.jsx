@@ -48,7 +48,7 @@ function RadialChart({ props }) {
   return (
     <RadialBarChart width={300} height={175} cx={150} cy={80} innerRadius={40} outerRadius={180} barSize={10} data={data}>
       <PolarAngleAxis type="number" domain={[0, range]} angleAxisId={0} tick={false} />
-      <RadialBar minAngle={15} label={{ value: 'test', position: 'center', fill: '#000000' }} background clockWise dataKey="amountReached" />
+      <RadialBar minAngle={15} label={{ position: 'center', fill: '#000000' }} background clockWise dataKey="amountReached" />
     </RadialBarChart>
   );
 }

@@ -120,7 +120,7 @@ export default class App extends React.Component {
         .then(response => response.json())
         .then(data => {
           this.setState({
-            holidays: data,
+            holidays: data.response.holidays,
             holidaysUpdated: dayUpdated
           });
         });
