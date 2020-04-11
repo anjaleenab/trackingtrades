@@ -1,4 +1,10 @@
-// import React from 'react';
+import React from 'react';
+
+// filters through trades to get the ones that are day trades
+function getDayTrades(trades) {
+  const dayTrades = trades.filter(trade => trades['Date-Bought'] === trades['Date-Sold']);
+  return dayTrades;
+}
 
 // function returnHolidayObjects(propHolidays) {
 //   let holidayObjectArray = [];
