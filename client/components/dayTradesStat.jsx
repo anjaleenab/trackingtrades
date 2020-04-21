@@ -5,9 +5,12 @@ function getMarketStatus(props) {
   const dateToday = new Date();
   const weekDay = dateToday.getDay();
   console.log(typeof dateToday.getDay());
-  if (weekDay === 1 || weekDay === 2) {
+
+  // accounts for market being closed because of saturday or sunday
+  if (weekDay === 6 || weekDay === 7) {
     return 'The market is closed today';
   }
+  // account for market being closed because of a holiday (includes first week day before or after Christmas)
 
 }
 
@@ -41,9 +44,11 @@ export default function DayTradesStat(props) {
   // ACCOUNT for Christmas (it may be observed the next week day or if it is on
   // a saturday it will be observed Friday, market will be closed.)
 
-  getMarketStatus(props);
+  let marketStat = getMarketStatus(props);
   console.log(props);
   return (
-    null
+    <div>
+      {marketStat}
+    </div>
   );
 }
