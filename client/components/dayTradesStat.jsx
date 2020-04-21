@@ -1,52 +1,31 @@
 import React from 'react';
 
-// filters through trades to get the ones that are day trades
-function getDayTrades(trades) {
-  const dayTrades = trades.filter(trade => trades['Date-Bought'] === trades['Date-Sold']);
-  return dayTrades;
+// let user know if the market is open or closed based on date and dates of holidays
+function getMarketStatus(props) {
+  const dateToday = new Date();
+  const weekDay = dateToday.getDay();
+  console.log(typeof dateToday.getDay());
+  if (weekDay === 1 || weekDay === 2) {
+    return 'The market is closed today';
+  }
+
 }
 
-// function returnHolidayObjects(propHolidays) {
-//   let holidayObjectArray = [];
-//   for (let holiday = 0; holiday < propHolidays.length; holiday++) {
-//     debugger;
-//     let currentHolidayName = propHolidays[holiday]['name'];
-//     let currentHoliday = propHolidays[holiday];
-//     let newYears, martinLutherKingDay, presidentsDay, memorialDay;
-//     switch (currentHolidayName) {
-//       case "New Year's Day":
-//         newYears = currentHoliday;
-//         holidayObjectArray.push(newYears);
-//         break;
-//       case 'Martin Luther King Jr. Day':
-//         martinLutherKingDay = currentHoliday;
-//         holidayObjectArray.push(martinLutherKingDay);
-//         break;
-//       case "President's Day":
-//         presidentsDay = currentHoliday;
-//         holidayObjectArray.push(presidentsDay);
-//         break;
-//       case 'Memorial Day':
-//         memorialDay = currentHoliday;
-//         holidayObjectArray.push(memorialDay);
-//         break;
-//     }
-//   }
-//   return holidayObjectArray;
+// // filters through trades to get the ones that are day trades
+// function getDayTrades(trades) {
+//   const dayTrades = trades.filter(trade => trades['Date-Bought'] === trades['Date-Sold']);
+//   return dayTrades;
 // }
 
-// use 2 for loops to compare each holiday's date with the date
-// and dates between the date that is 5 days after the date
-// function hasHoliday(propHolidays) {
+// // loop through dayTrades and get a list of ones that are less than 5 days from today
+// // will have to make a condition to make sure the days are less than 5 business days away from today
 
-//   for (let holiday = 0; holiday < propHolidays.length; holiday++) {
-
-//   }
-//   return holidayObjectArray;
+// function withinFiveDays() {
+//   // get trades that are within five days from today
 // }
 
-// NEED to calculate date + 5 days and format the value to match
-// the API's date value of "YEAR-MONTH-DAY"
+// // NEED to calculate date + 5 days and format the value to match
+// // the API's date value of "YEAR-MONTH-DAY"
 
 export default function DayTradesStat(props) {
 //   console.log(props);
@@ -61,6 +40,8 @@ export default function DayTradesStat(props) {
   // let markedClosedDates=
   // ACCOUNT for Christmas (it may be observed the next week day or if it is on
   // a saturday it will be observed Friday, market will be closed.)
+
+  getMarketStatus(props);
   console.log(props);
   return (
     null
