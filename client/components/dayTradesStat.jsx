@@ -4,15 +4,22 @@ import React from 'react';
 function getMarketStatus(props) {
   const dateToday = new Date();
   const weekDay = dateToday.getDay();
-  console.log(typeof dateToday.getDay());
-
+  let month = dateToday.getMonth() > 9 ? dateToday.getMonth() : `0${dateToday.getMonth()}`;
+  console.log(dateToday);
+  const dateFormatted = `${dateToday.getFullYear()}-${month}-${dateToday.getDate()}`;
+  console.log(dateFormatted);
   // accounts for market being closed because of saturday or sunday
   // account for market being closed because of a holiday (includes first week day
   // before or after Christmas)
-
-  if (weekDay === 6 || weekDay === 7) {
+  console.log(props);
+  if (weekDay === 6 || weekDay === 0) {
     return 'The market is closed today';
   } else {
+    for (let holiday = 0; holiday < props.holidays.length; holiday++) {
+      if (props.holidays['holiday']['date']['iso']) {
+        console.log('test');
+      }
+    }
     return 'The market is open today';
   }
 
