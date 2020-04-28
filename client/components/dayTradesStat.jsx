@@ -14,10 +14,16 @@ function getMarketStatus(props) {
   if (weekDay === 6 || weekDay === 0) {
     return closedStatement;
   } else {
+    console.log(props);
     for (let holiday = 0; holiday < props.holidays.length; holiday++) {
-      if (props.holidays['holiday']['date']['iso'] === dateFormatted) {
+      if (props.holidays[holiday]['date']['iso'] === dateFormatted) {
         return closedStatement;
       }
+    }
+    if (dateFormatted === '2020-12-26' && weekDay === 1) {
+      return closedStatement;
+    } else if (dateFormatted === '2020-12-24' && weekDay === 5) {
+      return closedStatement;
     }
     return 'The market is open today';
   }
@@ -55,7 +61,7 @@ export default function DayTradesStat(props) {
   // a saturday it will be observed Friday, market will be closed.)
 
   let marketStat = getMarketStatus(props);
-  console.log(props);
+
   return (
     <div>
       {marketStat}
