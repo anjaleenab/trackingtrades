@@ -20,6 +20,11 @@ function getMarketStatus(props) {
         return closedStatement;
       }
     }
+    if (dateFormatted === '2020-12-26' && weekDay === 1) {
+      return closedStatement;
+    } else if (dateFormatted === '2020-12-24' && weekDay === 5) {
+      return closedStatement;
+    }
     return 'The market is open today';
   }
 
