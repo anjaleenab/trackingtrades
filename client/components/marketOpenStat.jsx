@@ -14,7 +14,6 @@ function getMarketStatus(props) {
   if (weekDay === 6 || weekDay === 0) {
     return closedStatement;
   } else {
-    console.log(props);
     for (let holiday = 0; holiday < props.holidays.length; holiday++) {
       if (props.holidays[holiday]['date']['iso'] === dateFormatted) {
         return closedStatement;
@@ -30,41 +29,13 @@ function getMarketStatus(props) {
 
 }
 
-// // filters through trades to get the ones that are day trades
-// function getDayTrades(trades) {
-//   const dayTrades = trades.filter(trade => trades['Date-Bought'] === trades['Date-Sold']);
-//   return dayTrades;
-// }
-
-// // loop through dayTrades and get a list of ones that are less than 5 days from today
-// // will have to make a condition to make sure the days are less than 5 business days away from today
-
-// function withinFiveDays() {
-//   // get trades that are within five days from today
-// }
-
-// // NEED to calculate date + 5 days and format the value to match
-// // the API's date value of "YEAR-MONTH-DAY"
-
-export default function DayTradesStat(props) {
-//   console.log(props);
-//   let propHolidays = props.holidays['response']['holidays'];
-//   console.log(propHolidays);
-//   let holidayObjs = returnHolidayObjects(propHolidays);
-//   console.log(holidayObjs);
-
-  // let newYears = propHolidays['holidays']['date']['iso'];
-  // console.log(newYears);
-  // let NewYears =
-  // let markedClosedDates=
-  // ACCOUNT for Christmas (it may be observed the next week day or if it is on
-  // a saturday it will be observed Friday, market will be closed.)
+export default function MarketOpenStat(props) {
 
   let marketStat = getMarketStatus(props);
 
   return (
-    <div>
-      {marketStat}
+    <div className="marketStat">
+      <div>{marketStat}</div>
     </div>
   );
 }

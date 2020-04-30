@@ -187,6 +187,12 @@ label {
   margin-right: .5em;
 }
 
+.marketStat {
+  display: flex;
+  justify-content: center;
+  font-size: xx-large;
+}
+
 [class^=stat] {
   background-color: #c4c4c4;
   font-family: 'Loved by the King', cursive;

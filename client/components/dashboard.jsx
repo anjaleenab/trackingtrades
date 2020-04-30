@@ -3,7 +3,7 @@ import Header from './header';
 import { Redirect } from 'react-router-dom';
 import SimpleLineChart from './simpleLineChart';
 import PieChart from './pieChart';
-import DayTradesStat from './dayTradesStat';
+import MarketOpenStat from './marketOpenStat';
 import GoalStat from './goalStat';
 
 export default function Dashboard(props) {
@@ -15,7 +15,7 @@ export default function Dashboard(props) {
     component = <main className="mainDashboard">
       <div className="topDash">
         <div className="stat1">
-          <DayTradesStat trades={props.trades} holidays={props.holidays}/>
+          <MarketOpenStat trades={props.trades} holidays={props.holidays}/>
         </div>
         <div className="stat2">
           <GoalStat trades={props.trades} goal={props.goal} />
