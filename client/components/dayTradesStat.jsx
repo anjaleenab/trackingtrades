@@ -6,7 +6,7 @@ function getMarketStatus(props) {
   const weekDay = dateToday.getDay();
   let month = dateToday.getMonth() > 9 ? dateToday.getMonth() : `0${dateToday.getMonth()}`;
   const dateFormatted = `${dateToday.getFullYear()}-${month}-${dateToday.getDate()}`;
-  const closedStatement = 'The market is closed today';
+  const closedStatement = 'The stock market is closed today';
 
   // accounts for market being closed because of saturday or sunday
   // account for market being closed because of a holiday (includes first week day
@@ -20,9 +20,9 @@ function getMarketStatus(props) {
         return closedStatement;
       }
     }
-    if (dateFormatted === '2020-12-26' && weekDay === 1) {
+    if (dateFormatted === `${dateToday.getFullYear()}-12-26` && weekDay === 1) {
       return closedStatement;
-    } else if (dateFormatted === '2020-12-24' && weekDay === 5) {
+    } else if (dateFormatted === `${dateToday.getFullYear()}-12-24` && weekDay === 5) {
       return closedStatement;
     }
     return 'The market is open today';
