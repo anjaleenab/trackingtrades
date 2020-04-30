@@ -3,7 +3,7 @@ import Header from './header';
 import { Redirect } from 'react-router-dom';
 import SimpleLineChart from './simpleLineChart';
 import PieChart from './pieChart';
-import MarketOpenStat from './dayTradesStat';
+import MarketOpenStat from './marketOpenStat';
 import GoalStat from './goalStat';
 
 export default function Dashboard(props) {

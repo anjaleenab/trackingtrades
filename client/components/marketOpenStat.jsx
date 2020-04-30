@@ -34,8 +34,8 @@ export default function MarketOpenStat(props) {
   let marketStat = getMarketStatus(props);
 
   return (
-    <div>
-      {marketStat}
+    <div className="marketStat">
+      <div>{marketStat}</div>
     </div>
   );
 }
